@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "400782632185",
+    "firebase_url": "https://myisam-43e35.firebaseio.com",
+    "project_id": "myisam-43e35",
+    "storage_bucket": "myisam-43e35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400782632185:android:7c7b2a0ac8bd4177",
+        "android_client_info": {
+          "package_name": "com.example.mejdo.myisam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400782632185-ek9rre5d9pcaaf25n9ks72mgaf2801lr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mejdo.myisam",
+            "certificate_hash": "c697d2fad37a0a4ad8ffcbc8c9b19be93c74b432"
+          }
+        },
+        {
+          "client_id": "400782632185-q3g19gra41fqjfae88smv4hnvckkvfh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCokdsfVCL2TKvwWWGs5g0-OTuP3x11sjA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400782632185-q3g19gra41fqjfae88smv4hnvckkvfh1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
