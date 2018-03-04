@@ -3,8 +3,14 @@ package com.example.mejdo.myisam
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentTransaction
+import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -12,19 +18,41 @@ import com.google.firebase.database.FirebaseDatabase
 class Home : AppCompatActivity() {
 
     var myAuth = FirebaseAuth.getInstance()
-    lateinit var logout: Button
+   /* lateinit var logout: Button
     lateinit var save: Button
     lateinit var database: Button
     lateinit var editText1 : EditText
     lateinit var editText2 : EditText
     lateinit var editText3 : EditText
-    lateinit var editText4 : EditText
+    lateinit var editText4 : EditText*/
+    //lateinit var navigationView : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        editText1 = findViewById(R.id.firstName)
+    /*    navigationView = findViewById<View>(R.id.nav) as BottomNavigationView
+        navigationView.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener{
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                var selectedFragment : Fragment? = null
+                when(item.itemId){
+                    R.id.listClub ->
+                            selectedFragment = ListClubFragment.newInstance()
+                    R.id.addClub ->
+                        selectedFragment = AddClubFragment.newInstance()
+                }
+                var ft : FragmentTransaction = supportFragmentManager.beginTransaction()
+                ft.replace(R.id.main_frame,selectedFragment)
+                ft.commit()
+                return true
+            }
+        })
+        var ft : FragmentTransaction = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.main_frame,AddClubFragment.newInstance())
+        ft.commit()*/
+
+        /*editText1 = findViewById(R.id.firstName)
         editText2 = findViewById(R.id.lastName)
         editText3 = findViewById(R.id.adress)
         editText4 = findViewById(R.id.departement)
@@ -49,10 +77,10 @@ class Home : AppCompatActivity() {
 
         save.setOnClickListener{
             saveData()
-        }
+        }*/
     }
 
-    fun signOut() {
+    /*fun signOut() {
         myAuth.signOut()
     }
 
@@ -69,5 +97,5 @@ class Home : AppCompatActivity() {
             Toast.makeText(this, "saved ...", Toast.LENGTH_LONG).show()
         }
 
-    }
+    }*/
 }
