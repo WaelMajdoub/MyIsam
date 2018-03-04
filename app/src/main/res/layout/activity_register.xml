@@ -13,7 +13,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="22dp"
         android:gravity="center_horizontal"
-        android:text="Account Login"
+        android:text="Account Register"
         android:textColor="#fff"
         android:textSize="26sp"
         android:textStyle="bold" />
@@ -66,23 +66,22 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/register"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="22dp"
-                android:background="#666"
-                android:text="Register"
-                android:textAllCaps="false"
-                android:textColor="#fff"
-                android:textSize="18sp" />
-
-            <Button
                 android:id="@+id/login"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
                 android:background="#666"
                 android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/register"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="22dp"
+                android:background="#666"
+                android:text="Register"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp" />

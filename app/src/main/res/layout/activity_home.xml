@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mejdo.myisam.Home">
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="113dp"
+        android:text="Logout"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="358dp" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/logout"
+        android:layout_marginBottom="19dp"
+        android:layout_toLeftOf="@+id/logout"
+        android:layout_toStartOf="@+id/logout"
+        android:text="Save" />
+
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="firstName" />
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/firstName"
+        android:layout_alignStart="@+id/firstName"
+        android:layout_below="@+id/firstName"
+        android:layout_marginTop="59dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="lastName" />
+
+    <EditText
+        android:id="@+id/adress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lastName"
+        android:layout_alignStart="@+id/lastName"
+        android:layout_below="@+id/lastName"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="adress" />
+
+    <EditText
+        android:id="@+id/departement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/adress"
+        android:layout_alignRight="@+id/adress"
+        android:layout_below="@+id/adress"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Departement" />
+
+    <Button
+        android:id="@+id/database"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/save"
+        android:layout_toEndOf="@+id/logout"
+        android:layout_toRightOf="@+id/logout"
+        android:text="Database" />
+
+</RelativeLayout>

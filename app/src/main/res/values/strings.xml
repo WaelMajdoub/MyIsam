@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyIsam</string>
+    <string name="email_hint">Email</string>
 </resources>
