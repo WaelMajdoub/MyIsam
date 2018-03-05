@@ -17,8 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Register" />
-        <activity android:name=".Home" />
-        <activity android:name=".listView"></activity>
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home" />
+        <activity android:name=".listView" />
     </application>
 
 </manifest>
