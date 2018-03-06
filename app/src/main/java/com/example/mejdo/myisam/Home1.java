@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 public class Home1 extends AppCompatActivity {
-CardView mycard ;
+    CardView mycard ;
     Intent i ;
     LinearLayout ll;
     @Override
@@ -22,8 +22,7 @@ CardView mycard ;
             public void onClick(View v) {
                 Intent intent = null ;
                 intent = new Intent(Home1.this , add_club.class);
-                startActivity(intent);
-            }
+                startActivity(intent);            }
         });
 
     }
