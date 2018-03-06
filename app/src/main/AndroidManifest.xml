@@ -20,7 +20,8 @@
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home" />
-        <activity android:name=".listView" />
+        <activity android:name=".Home1" />
+        <activity android:name=".add_club"></activity>
     </application>
 
 </manifest>

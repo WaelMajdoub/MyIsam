@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var editText1 : EditText
     lateinit var editText2 : EditText
     lateinit var login : Button
-    lateinit var register : Button
+    lateinit var register : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         myAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, OnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        var intent= Intent(this,Home::class.java)
+                        var intent= Intent(this,Home1::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, "Sorry " + task.exception?.message, Toast.LENGTH_LONG).show()

@@ -9,15 +9,15 @@ class Home : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
+            R.id.listClub-> {
                 message.setText(R.string.title_home)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
+            R.id.addClub -> {
                 message.setText(R.string.title_dashboard)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_notifications -> {
+            R.id.logout -> {
                 message.setText(R.string.title_notifications)
                 return@OnNavigationItemSelectedListener true
             }
