@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -15,7 +16,7 @@ class Register : AppCompatActivity() {
     lateinit var editText1 : EditText
     lateinit var editText2 : EditText
     lateinit var register : Button
-    lateinit var login : Button
+    lateinit var login : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
