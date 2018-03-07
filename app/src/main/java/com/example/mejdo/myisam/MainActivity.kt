@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         myAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, OnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        var intent= Intent(this,Home1::class.java)
+                        var intent= Intent(this,Home::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, "Sorry " + task.exception?.message, Toast.LENGTH_LONG).show()

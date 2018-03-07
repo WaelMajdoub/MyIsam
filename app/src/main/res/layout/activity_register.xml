@@ -13,7 +13,7 @@
         >
 
         <TextView
-            android:id="@+id/login_title"
+            android:id="@+id/name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -27,7 +27,7 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="410dp"
-            android:layout_below="@+id/login_title"
+            android:layout_below="@+id/name"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="70dp"
@@ -124,7 +124,7 @@
             android:id="@+id/user_profile_photo"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_below="@+id/login_title"
+            android:layout_below="@+id/name"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:elevation="4dp"

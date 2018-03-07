@@ -2,27 +2,40 @@ package com.example.mejdo.myisam
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_home.*
+import com.google.firebase.auth.FirebaseAuth
 
 class Home : AppCompatActivity() {
+
+    var myAuth = FirebaseAuth.getInstance()
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.listClub-> {
-                message.setText(R.string.title_home)
+                val ListClubFragment = ListClubFragment.newInstance()
+                openFragment(ListClubFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.addClub -> {
-                message.setText(R.string.title_dashboard)
+                val AddClubFragment = AddClubFragment.newInstance()
+                openFragment(AddClubFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.logout -> {
-                message.setText(R.string.title_notifications)
+                myAuth.signOut()
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
+    }
+
+    private fun openFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,5 +43,14 @@ class Home : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        myAuth.addAuthStateListener {
+            if (myAuth.currentUser==null){
+                this.finish()
+            }
+        }
+
+
+
     }
 }
