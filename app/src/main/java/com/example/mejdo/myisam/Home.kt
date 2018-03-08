@@ -49,8 +49,5 @@ class Home : AppCompatActivity() {
                 this.finish()
             }
         }
-
-
-
     }
 }

@@ -44,7 +44,7 @@
                     android:drawableTint="#FF4081"
                     android:singleLine="true"
                     android:hint="Nom club"
-                    android:inputType="textEmailAddress" />
+                   />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -59,7 +59,7 @@
                 android:singleLine="true"
                 android:drawableTint="#FF4081"
                 android:hint="Type club"
-                android:inputType="numberPassword" />
+            />
         </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
