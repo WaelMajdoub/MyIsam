@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#375D81"
+    android:background="#047d92"
     android:orientation="vertical"
     >
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#375D81"
+        android:background="@drawable/back"
         android:orientation="vertical"
         >
 
@@ -133,4 +133,4 @@
 
             />
     </RelativeLayout>
-</ScrollView>
+</RelativeLayout>

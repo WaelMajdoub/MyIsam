@@ -4,7 +4,8 @@
     <item
         android:id="@+id/listClub"
         android:icon="@drawable/list"
-        android:title="@string/menu_list_club" />
+        android:title="@string/menu_list_club"
+       />
     <item
         android:id="@+id/addClub"
         android:icon="@drawable/add"
