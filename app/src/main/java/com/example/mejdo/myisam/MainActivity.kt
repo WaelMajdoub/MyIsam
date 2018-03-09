@@ -22,11 +22,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        // get view
         editText1=findViewById(R.id.email)
         editText2=findViewById(R.id.password)
         login= findViewById(R.id.login)
         register= findViewById(R.id.register)
+
         register.setOnClickListener{
             var intent : Intent = Intent(applicationContext,Register::class.java)
             startActivity(intent)
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "Sorry " + task.exception?.message, Toast.LENGTH_LONG).show()
                     }
                 })
+
     }
 
 }
