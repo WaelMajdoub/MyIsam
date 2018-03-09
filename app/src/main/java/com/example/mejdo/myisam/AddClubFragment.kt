@@ -25,10 +25,11 @@ class AddClubFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater!!.inflate(R.layout.fragment_add_club, container, false)
+
         save = view.findViewById<Button>(R.id.save)
-        val editText1 = view.findViewById<EditText>(R.id.name)
-        val editText2 = view.findViewById<EditText>(R.id.type)
-        val editText3 = view.findViewById<EditText>(R.id.description)
+         editText1 = view.findViewById<EditText>(R.id.name)
+         editText2 = view.findViewById<EditText>(R.id.type)
+         editText3 = view.findViewById<EditText>(R.id.description)
 
 
         save.setOnClickListener{
@@ -40,7 +41,7 @@ class AddClubFragment : Fragment() {
             val clubId = myDataBase.push().key
             val club = Clubs(clubId,name,type,description)
             myDataBase.child(clubId).setValue(club).addOnCompleteListener{
-                Toast.makeText(view.context,"TextView clicked.",Toast.LENGTH_SHORT).show()
+                Toast.makeText(view.context,"Saved succesfuly.",Toast.LENGTH_SHORT).show()
             }
         }
         return view

@@ -31,6 +31,7 @@ class Home : AppCompatActivity() {
         false
     }
 
+
     private fun openFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
@@ -47,6 +48,7 @@ class Home : AppCompatActivity() {
             if (myAuth.currentUser==null){
                 this.finish()
             }
+
         }
     }
 }
