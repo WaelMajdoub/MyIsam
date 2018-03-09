@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         editText1=findViewById(R.id.email)
         editText2=findViewById(R.id.password)
         login= findViewById(R.id.login)
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             var intent : Intent = Intent(applicationContext,Register::class.java)
             startActivity(intent)
         }
-
         login.setOnClickListener{
             view ->
             val email=editText1.text.toString().trim()

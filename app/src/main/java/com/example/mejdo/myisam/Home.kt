@@ -41,7 +41,6 @@ class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         myAuth.addAuthStateListener {
