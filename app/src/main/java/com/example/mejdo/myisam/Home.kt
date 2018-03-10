@@ -34,15 +34,21 @@ class Home : AppCompatActivity() {
 
     private fun openFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
+        transaction.replace(R.id.fargment_container, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        val transaction = supportFragmentManager.beginTransaction()
+        val ListClubFragment = ListClubFragment.newInstance()
+        transaction.replace(R.id.fargment_container, ListClubFragment).commit()
+
 
         myAuth.addAuthStateListener {
             if (myAuth.currentUser==null){
