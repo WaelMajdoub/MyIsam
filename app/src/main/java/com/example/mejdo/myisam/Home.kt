@@ -24,7 +24,9 @@ class Home : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.logout -> {
-                myAuth.signOut()
+               //myAuth.signOut()
+                val about = about.newInstance()
+                openFragment(about)
                 return@OnNavigationItemSelectedListener true
             }
         }

@@ -13,7 +13,7 @@
         android:gravity="center_horizontal"
         android:text="Ajouter club"
         android:textColor="#047d92"
-        android:textSize="26sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <RelativeLayout
@@ -90,7 +90,6 @@
                 android:textColor="#fff"
                 android:textSize="18sp"
                 />
-
             />
         </LinearLayout>
     </RelativeLayout>

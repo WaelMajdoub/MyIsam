@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
-import com.example.mejdo.myisam.R.id.parent
 import com.google.firebase.database.*
 
 /**
@@ -51,7 +50,7 @@ class ListClubFragment : Fragment() {
 
                     listView.setOnItemClickListener{
                         parent:AdapterView<*>? , view: View? ,position:Int ,id:Long ->
-                        val detail_club = detail_club.newInstance()
+                        val detail_club = Liste_Event.newInstance()
                         val ListClubFragment = ListClubFragment.newInstance()
                         val fragmentManager = activity!!.supportFragmentManager
                         val fragmentTransaction = fragmentManager.beginTransaction()

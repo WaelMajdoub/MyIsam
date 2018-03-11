@@ -4,12 +4,10 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import android.support.v7.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var editText2 : EditText
     lateinit var login : Button
     lateinit var register : TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "Sorry " + task.exception?.message, Toast.LENGTH_LONG).show()
                     }
                 })
+
 
     }
 
