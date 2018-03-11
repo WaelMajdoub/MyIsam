@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ListView
 
 
@@ -31,6 +32,14 @@ class Liste_Event : Fragment() {
 
         val adapter=adapter_liste_event(view.context,R.layout.my_liste_item_event,list)
         listView.adapter=adapter
+        listView.setOnItemClickListener{
+            parent: AdapterView<*>?, view: View?, position:Int, id:Long ->
+            val detail_event = detail_event.newInstance()
+            val fragmentManager = activity!!.supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fargment_container, detail_event)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()                    }
         return view
     }
     companion object {

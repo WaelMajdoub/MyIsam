@@ -50,7 +50,7 @@ class ListClubFragment : Fragment() {
 
                     listView.setOnItemClickListener{
                         parent:AdapterView<*>? , view: View? ,position:Int ,id:Long ->
-                        val detail_club = Liste_Event.newInstance()
+                        val detail_club = detail_club.newInstance()
                         val ListClubFragment = ListClubFragment.newInstance()
                         val fragmentManager = activity!!.supportFragmentManager
                         val fragmentTransaction = fragmentManager.beginTransaction()

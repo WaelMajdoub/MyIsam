@@ -4,8 +4,8 @@
     <item>
         <shape>
             <gradient
-               android:startColor="#375D81"
-                android:endColor="#375D81"
+               android:startColor="#fff"
+                android:endColor="#fff"
                 android:angle="270" />
             <corners
                 android:radius="4dp" />
@@ -14,7 +14,7 @@
                 android:top="10dp"
                 android:right="10dp"
                 android:bottom="10dp" />
-               <stroke android:color="#fff" android:width="2dp"></stroke>
+               <stroke android:color="#047d92" android:width="2dp"></stroke>
         </shape>
     </item>
 </selector>
