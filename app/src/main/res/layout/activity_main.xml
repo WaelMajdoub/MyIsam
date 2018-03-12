@@ -6,12 +6,20 @@
     android:background="#047d92"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true">
+    <android.support.v7.widget.Toolbar android:id="@+id/mainToolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    </android.support.v7.widget.Toolbar>
+
     <TextView
         android:id="@+id/name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:gravity="center_horizontal"
         android:text="Connectez-vous"
         android:textColor="#fff"
@@ -62,7 +70,7 @@
                     android:singleLine="true"
                     android:drawableTint="#FF4081"
                     android:hint="Password"
-                    android:inputType="numberPassword" />
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
             <TextView
                 android:id="@+id/register"
@@ -97,6 +105,7 @@
         android:layout_marginTop="6dp"
         android:elevation="4dp"
         android:background="@drawable/use"
+        android:src="@drawable/people1"
         />
 
 </RelativeLayout>

@@ -1,7 +1,6 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.fragments.list
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,12 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import com.example.mejdo.myisam.R
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class detail_club : Fragment() {
+class DetailClubFragment : Fragment() {
 
     lateinit var rej: Button
     lateinit var eve : Button
@@ -25,7 +25,7 @@ class detail_club : Fragment() {
         val view = inflater.inflate(R.layout.fragment_detail_club, container, false)
         eve=view.findViewById(R.id.event)
         eve.setOnClickListener{
-            val Liste_Event = Liste_Event.newInstance()
+            val Liste_Event = ListeEventFragment.newInstance()
             val fragmentManager = activity!!.supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.fargment_container, Liste_Event)
@@ -42,7 +42,7 @@ class detail_club : Fragment() {
         return view
     }
     companion object {
-        fun newInstance() : detail_club = detail_club()
+        fun newInstance() : DetailClubFragment = DetailClubFragment()
     }
 
 

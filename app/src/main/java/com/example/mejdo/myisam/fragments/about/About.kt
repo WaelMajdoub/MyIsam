@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.fragments.about
 
 
 import android.os.Bundle
@@ -6,12 +6,13 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.mejdo.myisam.R
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class about : Fragment() {
+class About : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -19,6 +20,6 @@ class about : Fragment() {
         return inflater.inflate(R.layout.fragment_about, container, false)
     }
     companion object {
-        fun newInstance() : about = about()
+        fun newInstance() : About = About()
     }
 }// Required empty public constructor

@@ -74,7 +74,7 @@
                     android:singleLine="true"
                     android:drawableTint="#FF4081"
                     android:hint="Description"
-                    android:inputType="numberPassword" />
+                     />
             </android.support.design.widget.TextInputLayout>
 
 

@@ -1,13 +1,15 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.Toolbar
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.mejdo.myisam.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -25,6 +27,8 @@ class Register : AppCompatActivity() {
     lateinit var login : TextView
     lateinit var myAuth:FirebaseAuth
     lateinit var progressBar: ProgressDialog
+    lateinit var mToolbar: Toolbar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +43,9 @@ class Register : AppCompatActivity() {
         login=findViewById(R.id.login)
         myAuth= FirebaseAuth.getInstance()
         progressBar= ProgressDialog(this)
+        mToolbar=findViewById(R.id.mainToolbar)
+        setSupportActionBar(mToolbar)
+        supportActionBar!!.setTitle("Register")
 
         register.setOnClickListener{
             val email=editText1.text.toString().trim()
@@ -59,7 +66,7 @@ class Register : AppCompatActivity() {
         }
 
         login.setOnClickListener{
-            var intent : Intent = Intent(applicationContext,MainActivity::class.java)
+            var intent : Intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
     }
@@ -81,11 +88,10 @@ class Register : AppCompatActivity() {
                         val myDataBase= FirebaseDatabase.getInstance().getReference("Users").child(uid)
                         myDataBase.setValue(userMap).addOnCompleteListener(OnCompleteListener { task ->
                             Toast.makeText(this, "Task callback function 1 done sucessfuly", Toast.LENGTH_LONG).show()
-                            val intent= Intent(applicationContext,MainActivity::class.java)
+                            progressBar.dismiss()
+                            val intent= Intent(applicationContext, MainActivity::class.java)
                             startActivity(intent)
                             finish()
-
-                            progressBar.dismiss()
                         })
 
                         Toast.makeText(this, "done sucessfuly", Toast.LENGTH_LONG).show()

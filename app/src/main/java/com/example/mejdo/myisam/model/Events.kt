@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.model
 
 /**
  * Created by lenovo on 11/03/2018.

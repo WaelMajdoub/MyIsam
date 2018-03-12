@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.fragments.list
 
 
 import android.os.Bundle
@@ -9,13 +9,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 
+import com.example.mejdo.myisam.R
+
 
 /**
  * A simple [Fragment] subclass.
  */
-class detail_event : Fragment() {
-    lateinit var part: Button
+class DetailEventFragment : Fragment() {
 
+    lateinit var part: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -28,7 +30,7 @@ class detail_event : Fragment() {
         return view
     }
     companion object {
-        fun newInstance() : detail_event = detail_event()
+        fun newInstance() : DetailEventFragment = DetailEventFragment()
     }
 
 }// Required empty public constructor

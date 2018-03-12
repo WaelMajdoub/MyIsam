@@ -30,7 +30,7 @@
                 android:background="#FFFFFF"
                 android:gravity="center_horizontal"
                 android:padding="6dp"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/Primary"
                 android:textSize="15dip"
                 android:textStyle="bold" />
 
@@ -42,7 +42,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="13dp"
-                android:src="@drawable/isamm" />
+                android:src="@drawable/jeune" />
 
             <View
                 android:id="@+id/divider"
