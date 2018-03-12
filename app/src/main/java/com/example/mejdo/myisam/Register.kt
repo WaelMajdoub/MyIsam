@@ -81,11 +81,10 @@ class Register : AppCompatActivity() {
                         val myDataBase= FirebaseDatabase.getInstance().getReference("Users").child(uid)
                         myDataBase.setValue(userMap).addOnCompleteListener(OnCompleteListener { task ->
                             Toast.makeText(this, "Task callback function 1 done sucessfuly", Toast.LENGTH_LONG).show()
+                            progressBar.dismiss()
                             val intent= Intent(applicationContext,MainActivity::class.java)
                             startActivity(intent)
                             finish()
-
-                            progressBar.dismiss()
                         })
 
                         Toast.makeText(this, "done sucessfuly", Toast.LENGTH_LONG).show()

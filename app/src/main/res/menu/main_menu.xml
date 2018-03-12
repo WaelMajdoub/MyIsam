@@ -11,8 +11,7 @@
         android:icon="@drawable/add"
         android:title="@string/menu_add_club" />
     <item
-        android:id="@+id/logout"
+        android:id="@+id/about"
         android:icon="@drawable/lock"
-        android:title="About" />
-
+        android:title="@string/menu_about" />
 </menu>

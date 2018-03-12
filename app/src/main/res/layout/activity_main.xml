@@ -62,7 +62,7 @@
                     android:singleLine="true"
                     android:drawableTint="#FF4081"
                     android:hint="Password"
-                    android:inputType="numberPassword" />
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
             <TextView
                 android:id="@+id/register"
