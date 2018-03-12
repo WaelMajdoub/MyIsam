@@ -15,7 +15,7 @@ import com.example.mejdo.myisam.model.Events
 /**
  * A simple [Fragment] subclass.
  */
-class Liste_Event : Fragment() {
+class ListeEventFragment : Fragment() {
     lateinit var listView: ListView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,7 +36,7 @@ class Liste_Event : Fragment() {
         listView.adapter=adapter
         listView.setOnItemClickListener{
             parent: AdapterView<*>?, view: View?, position:Int, id:Long ->
-            val detail_event = detail_event.newInstance()
+            val detail_event = DetailEventFragment.newInstance()
             val fragmentManager = activity!!.supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.fargment_container, detail_event)
@@ -45,6 +45,6 @@ class Liste_Event : Fragment() {
         return view
     }
     companion object {
-        fun newInstance() : Liste_Event = Liste_Event()
+        fun newInstance() : ListeEventFragment = ListeEventFragment()
     }
 }// Required empty public constructor

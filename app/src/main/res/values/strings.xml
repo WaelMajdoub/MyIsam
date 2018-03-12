@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MyIsam</string>
     <string name="email_hint">Email</string>
-    <string name="menu_list_club">List</string>
-    <string name="menu_add_club">Add</string>
+    <string name="menu_list_club">List Club</string>
+    <string name="menu_add_club">Add Club</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_about">About</string>
     <string name="menu_profil">Profil</string>

@@ -12,7 +12,7 @@ import android.widget.Toast
 import com.example.mejdo.myisam.R
 import com.example.mejdo.myisam.fragments.add.AddClubFragment
 import com.example.mejdo.myisam.fragments.list.ListClubFragment
-import com.example.mejdo.myisam.fragments.about.about
+import com.example.mejdo.myisam.fragments.about.About
 import kotlinx.android.synthetic.main.activity_home.*
 import com.google.firebase.auth.FirebaseAuth
 
@@ -34,7 +34,7 @@ class Home : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.about -> {
-                val about = about.newInstance()
+                val about = About.newInstance()
                 openFragment(about)
                 return@OnNavigationItemSelectedListener true
             }

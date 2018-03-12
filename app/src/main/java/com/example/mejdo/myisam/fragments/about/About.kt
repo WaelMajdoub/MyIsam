@@ -12,7 +12,7 @@ import com.example.mejdo.myisam.R
 /**
  * A simple [Fragment] subclass.
  */
-class about : Fragment() {
+class About : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -20,6 +20,6 @@ class about : Fragment() {
         return inflater.inflate(R.layout.fragment_about, container, false)
     }
     companion object {
-        fun newInstance() : about = about()
+        fun newInstance() : About = About()
     }
 }// Required empty public constructor

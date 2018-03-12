@@ -12,7 +12,7 @@ import com.example.mejdo.myisam.R
 /**
  * Created by lenovo on 10/03/2018.
  */
-class adapter_liste_club(var mctx: Context, var resource:Int, var items:List<Clubs>)
+class AdapterListeClub(var mctx: Context, var resource:Int, var items:List<Clubs>)
     :ArrayAdapter<Clubs>(mctx,resource,items){
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val layoutInflater: LayoutInflater =LayoutInflater.from(mctx)

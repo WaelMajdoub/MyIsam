@@ -12,7 +12,7 @@ import com.example.mejdo.myisam.R
 /**
  * A simple [Fragment] subclass.
  */
-class detail_event : Fragment() {
+class DetailEventFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -20,7 +20,7 @@ class detail_event : Fragment() {
         return inflater.inflate(R.layout.fragment_detail_event, container, false)
     }
     companion object {
-        fun newInstance() : detail_event = detail_event()
+        fun newInstance() : DetailEventFragment = DetailEventFragment()
     }
 
 }// Required empty public constructor

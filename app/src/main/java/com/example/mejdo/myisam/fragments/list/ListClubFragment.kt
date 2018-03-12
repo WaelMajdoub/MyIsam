@@ -27,7 +27,7 @@ class ListClubFragment : Fragment() {
         list.add(Clubs("12","jeune ing","éducatif","ancien club"))
         list.add(Clubs("12","jeune ing","éducatif","ancien club"))
         list.add(Clubs("12","jeune ing","éducatif","ancien club"))
-        val adapter=adapter_liste_club(view.context,R.layout.my_liste_item,list)
+        val adapter=AdapterListeClub(view.context,R.layout.my_liste_item,list)
         listView.adapter=adapter */
         clublist = mutableListOf()
         listView=view.findViewById(R.id.list_club)
@@ -44,7 +44,7 @@ class ListClubFragment : Fragment() {
                         val club=e.getValue(Clubs::class.java)
                         clublist.add(club!!)
                     }
-                    val adapter= adapter_liste_club(view.context, R.layout.my_liste_item, clublist)
+                    val adapter= AdapterListeClub(view.context, R.layout.my_liste_item, clublist)
                     listView.adapter=adapter
 
 
@@ -52,7 +52,7 @@ class ListClubFragment : Fragment() {
 
                     listView.setOnItemClickListener{
                         parent:AdapterView<*>? , view: View? ,position:Int ,id:Long ->
-                        val detail_club = detail_club.newInstance()
+                        val detail_club = DetailClubFragment.newInstance()
                         val ListClubFragment = newInstance()
                         val fragmentManager = activity!!.supportFragmentManager
                         val fragmentTransaction = fragmentManager.beginTransaction()
