@@ -9,6 +9,9 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.mejdo.myisam.fragments.AddClubFragment
+import com.example.mejdo.myisam.fragments.ListClubFragment
+import com.example.mejdo.myisam.fragments.about
 import kotlinx.android.synthetic.main.activity_home.*
 import com.google.firebase.auth.FirebaseAuth
 

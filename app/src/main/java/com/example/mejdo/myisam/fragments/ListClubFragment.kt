@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
+import com.example.mejdo.myisam.model.Clubs
+import com.example.mejdo.myisam.R
 import com.google.firebase.database.*
 
 /**
@@ -42,7 +44,7 @@ class ListClubFragment : Fragment() {
                         val club=e.getValue(Clubs::class.java)
                         clublist.add(club!!)
                     }
-                    val adapter=adapter_liste_club(view.context,R.layout.my_liste_item,clublist)
+                    val adapter= adapter_liste_club(view.context, R.layout.my_liste_item, clublist)
                     listView.adapter=adapter
 
 
@@ -51,7 +53,7 @@ class ListClubFragment : Fragment() {
                     listView.setOnItemClickListener{
                         parent:AdapterView<*>? , view: View? ,position:Int ,id:Long ->
                         val detail_club = detail_club.newInstance()
-                        val ListClubFragment = ListClubFragment.newInstance()
+                        val ListClubFragment = newInstance()
                         val fragmentManager = activity!!.supportFragmentManager
                         val fragmentTransaction = fragmentManager.beginTransaction()
                         fragmentTransaction.replace(R.id.fargment_container, detail_club)

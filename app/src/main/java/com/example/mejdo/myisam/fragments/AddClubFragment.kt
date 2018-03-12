@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.fragments
 
 
 import android.os.Bundle
@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.mejdo.myisam.model.Clubs
+import com.example.mejdo.myisam.R
 import com.google.firebase.database.FirebaseDatabase
 
 /**
@@ -39,7 +41,7 @@ class AddClubFragment : Fragment() {
 
             val myDataBase= FirebaseDatabase.getInstance().getReference("Clubs")
             val clubId = myDataBase.push().key
-            val club = Clubs(clubId,name,type,description)
+            val club = Clubs(clubId, name, type, description)
             myDataBase.child(clubId).setValue(club).addOnCompleteListener{
                 Toast.makeText(view.context,"Saved succesfuly.",Toast.LENGTH_SHORT).show()
             }

@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.fragments
 
 
 import android.os.Bundle
@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
+import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.model.Events
 
 
 /**
@@ -21,16 +23,16 @@ class Liste_Event : Fragment() {
         val view =  inflater.inflate(R.layout.liste_event, container, false)
         listView=view.findViewById(R.id.list_event)
         var list= mutableListOf<Events>()
-        list.add(Events("1","formation symphony","formation pour les débutant","karwi syrine","12/04/2018"))
-        list.add(Events("1","formation laravel","formation pour les débutant","karwi syrine","1/04/2018"))
-        list.add(Events("1","formation android","formation pour les débutant","karwi syrine","20/04/2018"))
-        list.add(Events("1","formation photoshop","formation pour les débutant","karwi syrine","2/04/2018"))
-        list.add(Events("1","formation ilustrateur","formation pour les débutant","karwi syrine","2/04/2018"))
-        list.add(Events("1","formation php","formation pour les débutant","karwi syrine","04/04/2018"))
-        list.add(Events("1","formation html","formation pour les débutant","karwi syrine","12/04/2018"))
-        list.add(Events("1","formation css","formation pour les débutant","karwi syrine","12/04/2018"))
+        list.add(Events("1", "formation symphony", "formation pour les débutant", "karwi syrine", "12/04/2018"))
+        list.add(Events("1", "formation laravel", "formation pour les débutant", "karwi syrine", "1/04/2018"))
+        list.add(Events("1", "formation android", "formation pour les débutant", "karwi syrine", "20/04/2018"))
+        list.add(Events("1", "formation photoshop", "formation pour les débutant", "karwi syrine", "2/04/2018"))
+        list.add(Events("1", "formation ilustrateur", "formation pour les débutant", "karwi syrine", "2/04/2018"))
+        list.add(Events("1", "formation php", "formation pour les débutant", "karwi syrine", "04/04/2018"))
+        list.add(Events("1", "formation html", "formation pour les débutant", "karwi syrine", "12/04/2018"))
+        list.add(Events("1", "formation css", "formation pour les débutant", "karwi syrine", "12/04/2018"))
 
-        val adapter=adapter_liste_event(view.context,R.layout.my_liste_item_event,list)
+        val adapter= adapter_liste_event(view.context, R.layout.my_liste_item_event, list)
         listView.adapter=adapter
         listView.setOnItemClickListener{
             parent: AdapterView<*>?, view: View?, position:Int, id:Long ->
