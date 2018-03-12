@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.example.mejdo.myisam.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
-import android.support.v7.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         progressBar= ProgressDialog(this)
 
         register.setOnClickListener{
-            var intent : Intent = Intent(applicationContext,Register::class.java)
+            var intent : Intent = Intent(applicationContext, Register::class.java)
             startActivity(intent)
         }
         login.setOnClickListener{
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this, OnCompleteListener { task ->
                     if (task.isSuccessful) {
 
-                        var intent= Intent(this,Home::class.java)
+                        var intent= Intent(this, Home::class.java)
                         startActivity(intent)
                         finish()
                         progressBar.dismiss()

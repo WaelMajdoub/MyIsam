@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam.fragments
+package com.example.mejdo.myisam.fragments.list
 
 
 import android.os.Bundle

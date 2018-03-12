@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.mejdo.myisam.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -59,7 +60,7 @@ class Register : AppCompatActivity() {
         }
 
         login.setOnClickListener{
-            var intent : Intent = Intent(applicationContext,MainActivity::class.java)
+            var intent : Intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
     }
@@ -82,7 +83,7 @@ class Register : AppCompatActivity() {
                         myDataBase.setValue(userMap).addOnCompleteListener(OnCompleteListener { task ->
                             Toast.makeText(this, "Task callback function 1 done sucessfuly", Toast.LENGTH_LONG).show()
                             progressBar.dismiss()
-                            val intent= Intent(applicationContext,MainActivity::class.java)
+                            val intent= Intent(applicationContext, MainActivity::class.java)
                             startActivity(intent)
                             finish()
                         })

@@ -1,4 +1,4 @@
-package com.example.mejdo.myisam
+package com.example.mejdo.myisam.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,10 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import com.example.mejdo.myisam.fragments.AddClubFragment
-import com.example.mejdo.myisam.fragments.ListClubFragment
-import com.example.mejdo.myisam.fragments.about
+import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.fragments.add.AddClubFragment
+import com.example.mejdo.myisam.fragments.list.ListClubFragment
+import com.example.mejdo.myisam.fragments.about.about
 import kotlinx.android.synthetic.main.activity_home.*
 import com.google.firebase.auth.FirebaseAuth
 
@@ -22,7 +23,7 @@ class Home : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.listClub-> {
+            R.id.listClub -> {
                 val ListClubFragment = ListClubFragment.newInstance()
                 openFragment(ListClubFragment)
                 return@OnNavigationItemSelectedListener true
@@ -82,7 +83,7 @@ class Home : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.logout){
             myAuth.signOut()
-            val intent= Intent(applicationContext,MainActivity::class.java)
+            val intent= Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
