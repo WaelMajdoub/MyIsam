@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 
 
 /**
@@ -15,7 +16,7 @@ import android.widget.Button
  */
 class detail_club : Fragment() {
 
-    lateinit var add: Button
+    lateinit var rej: Button
     lateinit var eve : Button
 
 
@@ -30,6 +31,12 @@ class detail_club : Fragment() {
             fragmentTransaction.replace(R.id.fargment_container, Liste_Event)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
+        }
+        rej=view.findViewById(R.id.save)
+
+        rej.setOnClickListener{
+            Toast.makeText(context, "votre demande a été envoyer veuillez attendez la confirmation", Toast.LENGTH_LONG).show()
+        rej.isEnabled=false
         }
 
         return view
