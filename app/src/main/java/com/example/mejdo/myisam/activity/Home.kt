@@ -3,6 +3,7 @@ package com.example.mejdo.myisam.activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
@@ -13,6 +14,7 @@ import com.example.mejdo.myisam.R
 import com.example.mejdo.myisam.fragments.add.AddClubFragment
 import com.example.mejdo.myisam.fragments.list.ListClubFragment
 import com.example.mejdo.myisam.fragments.about.About
+import com.example.mejdo.myisam.fragments.profil.ProfilFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import com.google.firebase.auth.FirebaseAuth
 
@@ -20,6 +22,7 @@ class Home : AppCompatActivity() {
 
     var myAuth = FirebaseAuth.getInstance()
     lateinit var mToolbar: Toolbar
+    lateinit var tabLayout: TabLayout
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -88,7 +91,8 @@ class Home : AppCompatActivity() {
             finish()
         }
         if (item?.itemId == R.id.profil){
-            Toast.makeText(this, "profil", Toast.LENGTH_LONG).show()
+            val profil= ProfilFragment.newInstance()
+            openFragment(profil)
         }
         return true
     }

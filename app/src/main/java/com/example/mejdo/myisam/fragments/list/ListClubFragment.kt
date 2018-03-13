@@ -47,9 +47,6 @@ class ListClubFragment : Fragment() {
                     val adapter= AdapterListeClub(view.context, R.layout.my_liste_item, clublist)
                     listView.adapter=adapter
 
-
-
-
                     listView.setOnItemClickListener{
                         parent:AdapterView<*>? , view: View? ,position:Int ,id:Long ->
                         val detail_club = DetailClubFragment.newInstance()
@@ -61,13 +58,10 @@ class ListClubFragment : Fragment() {
                         fragmentTransaction.commit()                    }
                 }
             }
-
         })
 
         return view
     }
-
-
 
         companion object {
         fun newInstance() : ListClubFragment = ListClubFragment()

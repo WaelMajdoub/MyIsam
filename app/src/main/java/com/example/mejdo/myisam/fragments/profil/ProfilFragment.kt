@@ -21,5 +21,8 @@ class ProfilFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profil, container, false)
     }
+    companion object {
+        fun newInstance(): ProfilFragment = ProfilFragment()
+    }
 
-}// Required empty public constructor
+}
