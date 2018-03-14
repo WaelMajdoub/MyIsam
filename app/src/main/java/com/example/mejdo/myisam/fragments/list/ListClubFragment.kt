@@ -50,22 +50,29 @@ class ListClubFragment : Fragment() {
 
 
 
-
                     listView.setOnItemClickListener{
                         parent:AdapterView<*>? , view: View? ,position:Int ,id:Long ->
-                        val detail_club = DetailClubFragment.newInstance()
-                        val ListClubFragment = newInstance()
-                        val fragmentManager = activity!!.supportFragmentManager
-                        val fragmentTransaction = fragmentManager.beginTransaction()
-                        fragmentTransaction.replace(R.id.fargment_container, detail_club)
-                        fragmentTransaction.addToBackStack(null)
-                        fragmentTransaction.commit()                    }
+                        val C=clublist[position]
+                        detail(C)
+
+                                      }
                 }
             }
 
         })
 
         return view
+    }
+    private fun detail(club:Clubs){
+
+                       val detail_club = DetailClubFragment.newInstance()
+                       val ListClubFragment = newInstance()
+                       val fragmentManager = activity!!.supportFragmentManager
+                       val fragmentTransaction = fragmentManager.beginTransaction()
+                       fragmentTransaction.replace(R.id.fargment_container, detail_club)
+                       fragmentTransaction.addToBackStack(null)
+                       fragmentTransaction.commit()
+
     }
 
 
