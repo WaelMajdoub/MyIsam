@@ -2,14 +2,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#047d92"
-    android:orientation="vertical"
     >
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#047d92"
-        android:orientation="vertical"
+        android:background="@color/colorPrimary"
         >
 
         <android.support.v7.widget.Toolbar android:id="@+id/mainToolbar"
@@ -27,9 +24,9 @@
             android:layout_marginBottom="16dp"
             android:layout_marginTop="100dp"
             android:gravity="center_horizontal"
-            android:text="Inscrivez-vous"
-            android:textColor="#fff"
-            android:textSize="20sp"
+            android:text="Inscrivez_vous"
+            android:textColor="@color/white"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
         <RelativeLayout
@@ -59,7 +56,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:drawableTint="#FF4081"
+                        android:drawableTint="@color/colorPrimary"
                         android:hint="nom"
                         android:singleLine="true" />
                 </android.support.design.widget.TextInputLayout>
@@ -86,7 +83,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:drawableTint="#FF4081"
+                        android:drawableTint="@color/colorPrimary"
                         android:hint="Cin"
                         android:inputType="numberDecimal"
                         android:singleLine="true" />
@@ -99,7 +96,7 @@
                         android:id="@+id/email"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:drawableTint="#FF4081"
+                        android:drawableTint="@color/colorPrimary"
                         android:hint="Email"
                         android:inputType="textEmailAddress"
                         android:singleLine="true" />
@@ -115,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:singleLine="true"
                         android:layout_marginTop="16dp"
-                        android:drawableTint="#FF4081"
+                        android:drawableTint="@color/colorPrimary"
                         android:hint="Password"
                         android:inputType="textPassword" />
                 </android.support.design.widget.TextInputLayout>
@@ -126,6 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:paddingTop="5dp"
+                    android:textColor="@color/colorAccent"
                     android:text="Connectez-vous  " />
 
 
@@ -134,7 +132,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="22dp"
-                    android:background="#047d92"
+                    android:background="@color/colorPrimary"
                     android:text="Sign in"
                     android:textAllCaps="false"
                     android:textColor="#fff"
@@ -142,6 +140,9 @@
                     />
             </LinearLayout>
         </RelativeLayout>
+
+
+
 
     </RelativeLayout>
 </ScrollView>

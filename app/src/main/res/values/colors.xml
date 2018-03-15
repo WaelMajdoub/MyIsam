@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFFFFF</color>
-    <color name="Primary">#047d92</color>
-    <color name="colorPrimaryDark">#0069C0</color>
-    <color name="colorAccent">#375D81</color>
+
+    <color name="colorPrimary">#047d92</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#047d92</color>
+
+    <color name="grey">#bfbfbf</color>
+    <color name="white">#fff</color>
+    <color name="black">#000000</color>
+    <color name="link_blue">#4d94ff</color>
+    <color name="darkRed">#cc0000</color>
+    <color name="colordarkRed">#cc0000</color>
+
+    <color name="mcam_color_light">#FAFAFA</color>
+    <color name="mcam_color_dark">#424242</color>
+>>>>>>> d0759c2b02ceaeb7bb740a5e7e2b5127ce181593
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorWhiteTransparent">#80FFFFFF</color>
     <color name="lightgray">#ededed</color>

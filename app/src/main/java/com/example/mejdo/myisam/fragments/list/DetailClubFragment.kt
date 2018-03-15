@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import com.example.mejdo.myisam.R
 
@@ -17,12 +18,21 @@ import com.example.mejdo.myisam.R
 class DetailClubFragment : Fragment() {
 
     lateinit var rej: Button
+    lateinit var nome: TextView
+
     lateinit var eve : Button
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_detail_club, container, false)
+        nome=view.findViewById(R.id.name_club)
+
+        val value = this.arguments!!.getString("key")
+        nome.text=value
+
+
+
         eve=view.findViewById(R.id.event)
         eve.setOnClickListener{
             val Liste_Event = ListeEventFragment.newInstance()
