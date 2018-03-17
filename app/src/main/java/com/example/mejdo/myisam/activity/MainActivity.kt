@@ -8,12 +8,14 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.*
 import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.utils.SessionManager
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     var myAuth = FirebaseAuth.getInstance()
+    lateinit var session: SessionManager
     lateinit var editText1 : EditText
     lateinit var editText2 : EditText
     lateinit var login : Button
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        session=SessionManager(applicationContext)
         editText1=findViewById(R.id.email)
         editText2=findViewById(R.id.password)
         login= findViewById(R.id.login)
