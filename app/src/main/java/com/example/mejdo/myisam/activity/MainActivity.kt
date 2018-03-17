@@ -30,6 +30,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         session=SessionManager(applicationContext)
+        if (session.isLoggedIn()){
+            var i:Intent= Intent(applicationContext,Home::class.java)
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(i)
+            finish()
+        }
+
         editText1=findViewById(R.id.email)
         editText2=findViewById(R.id.password)
         login= findViewById(R.id.login)
@@ -38,10 +46,12 @@ class MainActivity : AppCompatActivity() {
         mToolbar=findViewById(R.id.mainToolbar)
         setSupportActionBar(mToolbar)
         supportActionBar!!.setTitle("Login")
+
         register.setOnClickListener{
             var intent : Intent = Intent(applicationContext, Register::class.java)
             startActivity(intent)
         }
+
         login.setOnClickListener{
             view ->
             val email=editText1.text.toString().trim()
@@ -57,9 +67,9 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"Please enter your password", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
-
             signIn(view,email,password)
         }
+
     }
 
     private fun signIn(view:View,email:String,password:String){
@@ -68,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         myAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, OnCompleteListener { task ->
                     if (task.isSuccessful) {
-
+                        session.createLoginSession(email,password)
                         var intent= Intent(this, Home::class.java)
                         startActivity(intent)
                         finish()
