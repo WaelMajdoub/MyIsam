@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // get view
         editText1=findViewById(R.id.email)
         editText2=findViewById(R.id.password)
         login= findViewById(R.id.login)
@@ -44,6 +43,18 @@ class MainActivity : AppCompatActivity() {
             view ->
             val email=editText1.text.toString().trim()
             val password=editText2.text.toString().trim()
+
+            if (email.isEmpty() && password.isEmpty() ){
+                Toast.makeText(this,"Please enter your email and password", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }else if (email.isEmpty()){
+                Toast.makeText(this,"Please enter your email", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }else if (password.isEmpty()){
+                Toast.makeText(this,"Please enter your password", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             signIn(view,email,password)
         }
     }
