@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
 import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.model.Clubs
 import com.example.mejdo.myisam.model.Events
+import com.google.firebase.database.DatabaseReference
 
 
 /**

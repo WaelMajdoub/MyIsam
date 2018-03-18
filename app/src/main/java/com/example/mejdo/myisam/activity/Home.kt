@@ -14,6 +14,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.R.id.profil
 import com.example.mejdo.myisam.fragments.add.AddClubFragment
 import com.example.mejdo.myisam.fragments.list.ListClubFragment
 import com.example.mejdo.myisam.fragments.about.About
@@ -32,34 +33,41 @@ class Home : AppCompatActivity() {
 
     @SuppressLint("ResourceAsColor") private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         btn=findViewById(R.id.navigation)
-
         when (item.itemId) {
             R.id.listClub -> {
-                mToolbar.setBackgroundColor(Color.parseColor("#37bbc7"))
-                btn.setBackgroundColor(Color.parseColor("#37bbc7"))
+               /* mToolbar.setBackgroundColor(Color.parseColor("#073C43"))
+                btn.setBackgroundColor(Color.parseColor("#073C43"))*/
                 //  mToolbar.setBackgroundColor(R.color.white)
                 val ListClubFragment = ListClubFragment.newInstance()
                 openFragment(ListClubFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.addClub -> {
-                  mToolbar.setBackgroundColor(Color.parseColor("#27a6b1"))
-                btn.setBackgroundColor(Color.parseColor("#27a6b1"))
+              /*  mToolbar.setBackgroundColor(Color.parseColor("#14515A"))
+                btn.setBackgroundColor(Color.parseColor("#14515A"))*/
+
                 val AddClubFragment = AddClubFragment.newInstance()
                 openFragment(AddClubFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.about -> {
-                mToolbar.setBackgroundColor(Color.parseColor("#1895a0"))
-                btn.setBackgroundColor(Color.parseColor("#1895a0"))
-                val about = About.newInstance()
-                openFragment(about)
+               /* mToolbar.setBackgroundColor(Color.parseColor("#35757E"))
+                btn.setBackgroundColor(Color.parseColor("#35757E"))*/
+
+            val about = About.newInstance()
+            openFragment(about)
+            return@OnNavigationItemSelectedListener true
+        }
+            R.id.profil -> {
+                /*mToolbar.setBackgroundColor(Color.parseColor("#4E8A92"))
+                btn.setBackgroundColor(Color.parseColor("#4E8A92"))*/
+                val profil = ProfilFragment.newInstance()
+                openFragment(profil)
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
     }
-
 
     private fun openFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()

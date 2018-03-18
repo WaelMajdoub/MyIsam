@@ -27,7 +27,7 @@ class Register : AppCompatActivity() {
     lateinit var login : TextView
     lateinit var myAuth:FirebaseAuth
     lateinit var progressBar: ProgressDialog
-    lateinit var mToolbar: Toolbar
+  //  lateinit var mToolbar: Toolbar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,9 +43,9 @@ class Register : AppCompatActivity() {
         login=findViewById(R.id.login)
         myAuth= FirebaseAuth.getInstance()
         progressBar= ProgressDialog(this)
-        mToolbar=findViewById(R.id.mainToolbar)
+       /* mToolbar=findViewById(R.id.mainToolbar)
         setSupportActionBar(mToolbar)
-        supportActionBar!!.setTitle("Register")
+        supportActionBar!!.setTitle("Register")*/
 
         register.setOnClickListener{
             val email=editText1.text.toString().trim()

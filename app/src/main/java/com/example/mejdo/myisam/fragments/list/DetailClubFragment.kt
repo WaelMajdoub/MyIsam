@@ -2,11 +2,14 @@ package com.example.mejdo.myisam.fragments.list
 
 
 import android.os.Bundle
+import android.support.design.widget.CoordinatorLayout
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.example.mejdo.myisam.R
@@ -21,6 +24,7 @@ class DetailClubFragment : Fragment() {
     lateinit var nome: TextView
 
     lateinit var eve : Button
+    private lateinit var relativelayout:RelativeLayout
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,6 +36,7 @@ class DetailClubFragment : Fragment() {
         nome.text=value
 
 
+        relativelayout=view.findViewById(R.id.cord)
 
         eve=view.findViewById(R.id.event)
         eve.setOnClickListener{
@@ -45,7 +50,8 @@ class DetailClubFragment : Fragment() {
         rej=view.findViewById(R.id.save)
 
         rej.setOnClickListener{
-            Toast.makeText(context, "votre demande a été envoyer veuillez attendez la confirmation", Toast.LENGTH_LONG).show()
+            var snackbar:Snackbar= Snackbar.make(relativelayout,"votre demande a été envoyer veuillez attendez la confirmation de responsable de club",Snackbar.LENGTH_LONG)
+            snackbar.show()
         rej.isEnabled=false
         }
 

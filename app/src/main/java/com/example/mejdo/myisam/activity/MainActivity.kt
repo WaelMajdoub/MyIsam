@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.*
@@ -21,13 +22,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var login : Button
     lateinit var register : TextView
     lateinit var progressBar: ProgressDialog
-    lateinit var mToolbar: Toolbar
+    //lateinit var mToolbar: Toolbar
+    private lateinit var relativelayout: RelativeLayout
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        relativelayout=findViewById(R.id.cord)
 
         session=SessionManager(applicationContext)
         if (session.isLoggedIn()){
@@ -43,9 +46,10 @@ class MainActivity : AppCompatActivity() {
         login= findViewById(R.id.login)
         register= findViewById(R.id.register)
         progressBar= ProgressDialog(this)
-        mToolbar=findViewById(R.id.mainToolbar)
+
+      /*  mToolbar=findViewById(R.id.mainToolbar)
         setSupportActionBar(mToolbar)
-        supportActionBar!!.setTitle("Login")
+        supportActionBar!!.setTitle("Login")*/
 
         register.setOnClickListener{
             var intent : Intent = Intent(applicationContext, Register::class.java)
@@ -58,13 +62,19 @@ class MainActivity : AppCompatActivity() {
             val password=editText2.text.toString().trim()
 
             if (email.isEmpty() && password.isEmpty() ){
-                Toast.makeText(this,"Please enter your email and password", Toast.LENGTH_LONG).show()
+                var snackbar: Snackbar = Snackbar.make(relativelayout,"Please enter your email and password ! ", Snackbar.LENGTH_LONG)
+                snackbar.show()
+           //     Toast.makeText(this,"Please enter your email and password", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }else if (email.isEmpty()){
-                Toast.makeText(this,"Please enter your email", Toast.LENGTH_LONG).show()
+                var snackbar: Snackbar = Snackbar.make(relativelayout,"Please enter your email !", Snackbar.LENGTH_LONG)
+                snackbar.show()
+           //     Toast.makeText(this,"Please enter your email", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }else if (password.isEmpty()){
-                Toast.makeText(this,"Please enter your password", Toast.LENGTH_LONG).show()
+                var snackbar: Snackbar = Snackbar.make(relativelayout,"Please enter your password !", Snackbar.LENGTH_LONG)
+                snackbar.show()
+                //Toast.makeText(this,"Please enter your password", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
             signIn(view,email,password)
@@ -84,7 +94,10 @@ class MainActivity : AppCompatActivity() {
                         finish()
                         progressBar.dismiss()
                     } else {
-                        Toast.makeText(this, "Sorry " + task.exception?.message, Toast.LENGTH_LONG).show()
+                        var snackbar: Snackbar = Snackbar.make(relativelayout,"Sorry!"+ task.exception?.message, Snackbar.LENGTH_LONG)
+                        snackbar.show()
+                        progressBar.dismiss()
+                        //   Toast.makeText(this, "Sorry " + task.exception?.message, Toast.LENGTH_LONG).show()
                     }
                 })
 
