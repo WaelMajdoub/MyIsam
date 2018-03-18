@@ -15,11 +15,8 @@
         android:icon="@drawable/lock"
         android:title="@string/menu_about" />
     <item
-        android:id="@+id/test"
+        android:id="@+id/profil"
         android:icon="@drawable/lock"
         android:title="@string/menu_about" />
-    <item
-        android:id="@+id/test2"
-        android:icon="@drawable/lock"
-        android:title="@string/menu_about" />
+
 </menu>

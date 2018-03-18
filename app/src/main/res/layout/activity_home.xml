@@ -30,7 +30,6 @@
       android:background="@drawable/white_grey_border_bottom"
       app:itemIconTint="@color/white"
       app:itemTextColor="@color/white"
-
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"

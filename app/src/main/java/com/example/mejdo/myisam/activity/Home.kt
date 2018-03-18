@@ -1,7 +1,10 @@
 package com.example.mejdo.myisam.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.support.design.internal.BottomNavigationItemView
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
@@ -23,20 +26,30 @@ class Home : AppCompatActivity() {
     var myAuth = FirebaseAuth.getInstance()
     lateinit var mToolbar: Toolbar
     lateinit var tabLayout: TabLayout
+    lateinit var btn:BottomNavigationView
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+    @SuppressLint("ResourceAsColor") private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        btn=findViewById(R.id.navigation)
+
         when (item.itemId) {
             R.id.listClub -> {
+                mToolbar.setBackgroundColor(Color.parseColor("#37bbc7"))
+                btn.setBackgroundColor(Color.parseColor("#37bbc7"))
+                //  mToolbar.setBackgroundColor(R.color.white)
                 val ListClubFragment = ListClubFragment.newInstance()
                 openFragment(ListClubFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.addClub -> {
+                  mToolbar.setBackgroundColor(Color.parseColor("#27a6b1"))
+                btn.setBackgroundColor(Color.parseColor("#27a6b1"))
                 val AddClubFragment = AddClubFragment.newInstance()
                 openFragment(AddClubFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.about -> {
+                mToolbar.setBackgroundColor(Color.parseColor("#1895a0"))
+                btn.setBackgroundColor(Color.parseColor("#1895a0"))
                 val about = About.newInstance()
                 openFragment(about)
                 return@OnNavigationItemSelectedListener true
