@@ -18,6 +18,7 @@ import com.example.mejdo.myisam.fragments.add.AddClubFragment
 import com.example.mejdo.myisam.fragments.list.ListClubFragment
 import com.example.mejdo.myisam.fragments.about.About
 import com.example.mejdo.myisam.fragments.profil.ProfilFragment
+import com.example.mejdo.myisam.utils.SessionManager
 import kotlinx.android.synthetic.main.activity_home.*
 import com.google.firebase.auth.FirebaseAuth
 
@@ -27,6 +28,7 @@ class Home : AppCompatActivity() {
     lateinit var mToolbar: Toolbar
     lateinit var tabLayout: TabLayout
     lateinit var btn:BottomNavigationView
+    lateinit var session:SessionManager
 
     @SuppressLint("ResourceAsColor") private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         btn=findViewById(R.id.navigation)
@@ -72,6 +74,10 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        session = SessionManager(applicationContext)
+        session.checkLogin()
+
+
         mToolbar=findViewById(R.id.mainToolbar)
         setSupportActionBar(mToolbar)
         supportActionBar!!.setTitle("Home")
@@ -98,6 +104,7 @@ class Home : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.logout){
+            session.logoutUser()
             myAuth.signOut()
             val intent= Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
