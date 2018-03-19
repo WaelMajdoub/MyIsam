@@ -52,39 +52,16 @@ class AddEventFragment : Fragment() {
             val type= editText2.text.toString().trim()
             val description= editText3.text.toString().trim()
             val date= editText4.text.toString().trim()
-
             mAuth=FirebaseAuth.getInstance()
             val uid=mAuth.currentUser?.uid
 
-
-           //    val ref =FirebaseDatabase.getInstance().getReference("Clubs")
-
+            val id = this.arguments!!.getString("id")
             val myDataBase= FirebaseDatabase.getInstance().getReference("Events")
             val eventId = myDataBase.push().key
-            val ref= FirebaseDatabase.getInstance().getReference("Clubs")
-          /*  val query = ref.orderByChild("iduser").equalTo(uid)
-
-            query.addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                    for (Clubs in snapshot.children) {
-                        val id= Clubs.child("clubId").ref
-                        Toast.makeText(view.context,"Saved succesfuly."+id,Toast.LENGTH_SHORT).show()
-                         val event = Events(eventId, name, type, description ,date,id)
-
-                           myDataBase.child(eventId).setValue(event).addOnCompleteListener{
-                               Toast.makeText(view.context,"Saved succesfuly.", Toast.LENGTH_SHORT).show()
-                           }
-
-
-                    }
-                }
-
-                override fun onCancelled(databaseError: DatabaseError) {
-                    Log.w(TAG, "getUser:onCancelled", databaseError.toException())
-                }
-            })*/
-
-
+            val event = Events(eventId, name, type, description , date ,id)
+            myDataBase.child(eventId).setValue(event).addOnCompleteListener{
+                Toast.makeText(view.context,"Saved succesfuly.",Toast.LENGTH_SHORT).show()
+            }
 
 
         }

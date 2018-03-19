@@ -50,9 +50,9 @@ class ListeEventFragment : Fragment() {
         return viewgit merge sirine
 
             fragmentTransaction.commit()                    }*/
+
+
         val id = this.arguments!!.getString("id")
-
-
         Eventlist = mutableListOf()
         listView=view.findViewById(R.id.list_event)
         ref= FirebaseDatabase.getInstance().getReference("Events")
@@ -60,20 +60,18 @@ class ListeEventFragment : Fragment() {
             override fun onCancelled(p0: DatabaseError?) {
 
             }
-
             override fun onDataChange(p0: DataSnapshot?) {
                 if (p0!!.exists()){
                     Eventlist.clear()
                     for(e in p0.children){
 
                         val event=e.getValue(Events::class.java)
-                  /*      if (event != null) {
-                            if (event.idclub==id){ */
-
+                     if (event != null) {
+                            if (event.idclub==id){
                                 Eventlist.add(event!!)
 
-                    /*       }
-                        } */
+                          }
+                        }
 
 
                     }

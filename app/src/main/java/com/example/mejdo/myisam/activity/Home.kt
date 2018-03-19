@@ -101,7 +101,6 @@ class Home : AppCompatActivity() {
             if (myAuth.currentUser==null){
                 this.finish()
             }
-
         }
     }
 

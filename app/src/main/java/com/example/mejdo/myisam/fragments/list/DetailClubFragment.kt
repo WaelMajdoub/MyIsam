@@ -13,6 +13,8 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.fragments.add.AddClubFragment
+import com.example.mejdo.myisam.fragments.add.AddEventFragment
 
 
 /**
@@ -20,7 +22,7 @@ import com.example.mejdo.myisam.R
  */
 class DetailClubFragment : Fragment() {
 
-    lateinit var rej: Button
+    lateinit var add: Button
     lateinit var nome: TextView
 
     lateinit var eve : Button
@@ -33,10 +35,11 @@ class DetailClubFragment : Fragment() {
         nome=view.findViewById(R.id.name_club)
         val value = this.arguments!!.getString("key")
         val id = this.arguments!!.getString("id")
+        val ListeEventFragment= ListeEventFragment.newInstance()
         val bundle = Bundle()
         bundle.putString("id", id)
-        val ListeEventFragment= ListeEventFragment.newInstance()
         ListeEventFragment.setArguments(bundle);
+
 
         nome.text=value
 
@@ -51,12 +54,21 @@ class DetailClubFragment : Fragment() {
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
-        rej=view.findViewById(R.id.save)
+        add=view.findViewById(R.id.addEvent)
 
-        rej.setOnClickListener{
-            var snackbar:Snackbar= Snackbar.make(relativelayout,"votre demande a été envoyer veuillez attendez la confirmation de responsable de club",Snackbar.LENGTH_LONG)
-            snackbar.show()
-        rej.isEnabled=false
+        add.setOnClickListener{
+            val id = this.arguments!!.getString("id")
+            val bundle = Bundle()
+            bundle.putString("id", id)
+            val AddEventFragment = AddEventFragment.newInstance()
+            AddEventFragment.setArguments(bundle);
+            val fragmentManager = activity!!.supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fargment_container, AddEventFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+
+
         }
 
         return view

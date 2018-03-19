@@ -107,12 +107,12 @@
                 android:textSize="18sp"
                 />
             <Button
-                android:id="@+id/save"
+                android:id="@+id/addEvent"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:background="#047d92"
-                android:text="rejoindre club"
+                android:text="Add event"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp"

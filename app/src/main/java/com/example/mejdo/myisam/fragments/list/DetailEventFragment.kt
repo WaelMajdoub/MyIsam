@@ -22,13 +22,11 @@ class DetailEventFragment : Fragment() {
 
     lateinit var part: Button
     private lateinit var relativelayout: RelativeLayout
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_detail_event, container, false)
         part=view.findViewById(R.id.save)
         relativelayout=view.findViewById(R.id.cord)
-
         part.setOnClickListener{
             var snackbar: Snackbar = Snackbar.make(relativelayout,"votre demande a été envoyer veuillez attendez la confirmation de responsable de club", Snackbar.LENGTH_LONG)
             snackbar.show()
