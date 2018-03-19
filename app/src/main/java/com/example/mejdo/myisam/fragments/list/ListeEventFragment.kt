@@ -44,7 +44,7 @@ class ListeEventFragment : Fragment() {
             fragmentTransaction.replace(R.id.fargment_container, detail_event)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()                    }
-        return view
+        return viewgit merge sirine
     }
     companion object {
         fun newInstance() : ListeEventFragment = ListeEventFragment()
