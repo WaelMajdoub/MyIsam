@@ -33,6 +33,13 @@ class ListClubFragment : Fragment() {
         list.add(Clubs("12","jeune ing","éducatif","ancien club"))
         val adapter=AdapterListeClub(view.context,R.layout.my_liste_item,list)
         listView.adapter=adapter */
+
+
+
+
+
+
+
         clublist = mutableListOf()
         listView=view.findViewById(R.id.list_club)
         ref= FirebaseDatabase.getInstance().getReference("Clubs")
@@ -68,6 +75,10 @@ class ListClubFragment : Fragment() {
        // Log.e("test",club.name)
         val bundle = Bundle()
         bundle.putString("key", club.name)
+        bundle.putString("id", club.clubId)
+
+
+
         val detail_club = DetailClubFragment.newInstance()
         detail_club.setArguments(bundle);
 
@@ -76,6 +87,7 @@ class ListClubFragment : Fragment() {
                        fragmentTransaction.replace(R.id.fargment_container, detail_club)
                        fragmentTransaction.addToBackStack(null)
                        fragmentTransaction.commit()
+
 
     }
 

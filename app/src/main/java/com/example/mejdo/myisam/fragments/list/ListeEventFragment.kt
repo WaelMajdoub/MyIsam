@@ -2,6 +2,7 @@ package com.example.mejdo.myisam.fragments.list
 
 
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,7 @@ import android.widget.ListView
 import com.example.mejdo.myisam.R
 import com.example.mejdo.myisam.model.Clubs
 import com.example.mejdo.myisam.model.Events
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.*
 
 
 /**
@@ -19,24 +20,26 @@ import com.google.firebase.database.DatabaseReference
  */
 class ListeEventFragment : Fragment() {
     lateinit var listView: ListView
+    lateinit var ref: DatabaseReference
+    lateinit var Eventlist:MutableList<Events>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.liste_event, container, false)
-        listView=view.findViewById(R.id.list_event)
+     /*   listView=view.findViewById(R.id.list_event)
         var list= mutableListOf<Events>()
-        list.add(Events("1", "formation symphony", "formation pour les débutant", "karwi syrine", "12/04/2018"))
-        list.add(Events("1", "formation laravel", "formation pour les débutant", "karwi syrine", "1/04/2018"))
-        list.add(Events("1", "formation android", "formation pour les débutant", "karwi syrine", "20/04/2018"))
-        list.add(Events("1", "formation photoshop", "formation pour les débutant", "karwi syrine", "2/04/2018"))
-        list.add(Events("1", "formation ilustrateur", "formation pour les débutant", "karwi syrine", "2/04/2018"))
-        list.add(Events("1", "formation php", "formation pour les débutant", "karwi syrine", "04/04/2018"))
-        list.add(Events("1", "formation html", "formation pour les débutant", "karwi syrine", "12/04/2018"))
-        list.add(Events("1", "formation css", "formation pour les débutant", "karwi syrine", "12/04/2018"))
+        list.add(Events("1", "formation symphony", "formation pour les débutant", "karwi syrine", "12/04/2018", "00"))
+        list.add(Events("1", "formation laravel", "formation pour les débutant", "karwi syrine", "1/04/2018","11"))
+        list.add(Events("1", "formation android", "formation pour les débutant", "karwi syrine", "20/04/2018","33"))
+        list.add(Events("1", "formation symphony", "formation pour les débutant", "karwi syrine", "12/04/2018", "00"))
+        list.add(Events("1", "formation laravel", "formation pour les débutant", "karwi syrine", "1/04/2018","11"))
+        list.add(Events("1", "formation android", "formation pour les débutant", "karwi syrine", "20/04/2018","33"))
+
 
         val adapter= adapter_liste_event(view.context, R.layout.my_liste_item_event, list)
-        listView.adapter=adapter
-        listView.setOnItemClickListener{
+        listView.adapter=adapter */
+
+   /*     listView.setOnItemClickListener{
             parent: AdapterView<*>?, view: View?, position:Int, id:Long ->
             val detail_event = DetailEventFragment.newInstance()
             val fragmentManager = activity!!.supportFragmentManager
@@ -45,6 +48,43 @@ class ListeEventFragment : Fragment() {
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()                    }
         return viewgit merge sirine
+
+            fragmentTransaction.commit()                    }*/
+        val id = this.arguments!!.getString("id")
+
+
+        Eventlist = mutableListOf()
+        listView=view.findViewById(R.id.list_event)
+        ref= FirebaseDatabase.getInstance().getReference("Events")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError?) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot?) {
+                if (p0!!.exists()){
+                    Eventlist.clear()
+                    for(e in p0.children){
+
+                        val event=e.getValue(Events::class.java)
+                  /*      if (event != null) {
+                            if (event.idclub==id){ */
+
+                                Eventlist.add(event!!)
+
+                    /*       }
+                        } */
+
+
+                    }
+                    val adapter= adapter_liste_event(view.context, R.layout.my_liste_item_event, Eventlist)
+                    listView.adapter=adapter
+
+                }
+            }
+        })
+        return view
+
     }
     companion object {
         fun newInstance() : ListeEventFragment = ListeEventFragment()

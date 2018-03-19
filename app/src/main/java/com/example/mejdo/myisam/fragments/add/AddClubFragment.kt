@@ -12,6 +12,17 @@ import android.widget.Toast
 import com.example.mejdo.myisam.model.Clubs
 import com.example.mejdo.myisam.R
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.Query
+import android.content.ContentValues.TAG
+import android.util.Log
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ValueEventListener
+
+
+
 
 /**
  * A simple [Fragment] subclass.
@@ -22,7 +33,7 @@ class AddClubFragment : Fragment() {
     lateinit var editText1 : EditText
     lateinit var editText2 : EditText
     lateinit var editText3 : EditText
-
+    lateinit var mAuth: FirebaseAuth
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -38,13 +49,21 @@ class AddClubFragment : Fragment() {
             val name= editText1.text.toString().trim()
             val type= editText2.text.toString().trim()
             val description= editText3.text.toString().trim()
+            mAuth=FirebaseAuth.getInstance()
+            val uid=mAuth.currentUser?.uid
+
+         /*   val ref =FirebaseDatabase.getInstance().getReference("Clubs")
+           Toast.makeText(view.context,"Saved succesfuly."+query,Toast.LENGTH_SHORT).show()*/
+
 
             val myDataBase= FirebaseDatabase.getInstance().getReference("Clubs")
             val clubId = myDataBase.push().key
-            val club = Clubs(clubId, name, type, description)
+            val club = Clubs(clubId, name, type, description , uid!!)
             myDataBase.child(clubId).setValue(club).addOnCompleteListener{
                 Toast.makeText(view.context,"Saved succesfuly.",Toast.LENGTH_SHORT).show()
             }
+
+
         }
         return view
 }

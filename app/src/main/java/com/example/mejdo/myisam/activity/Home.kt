@@ -18,6 +18,7 @@ import com.example.mejdo.myisam.R.id.profil
 import com.example.mejdo.myisam.fragments.add.AddClubFragment
 import com.example.mejdo.myisam.fragments.list.ListClubFragment
 import com.example.mejdo.myisam.fragments.about.About
+import com.example.mejdo.myisam.fragments.add.AddEventFragment
 import com.example.mejdo.myisam.fragments.profil.ProfilFragment
 import com.example.mejdo.myisam.utils.SessionManager
 import kotlinx.android.synthetic.main.activity_home.*
@@ -61,8 +62,8 @@ class Home : AppCompatActivity() {
             R.id.profil -> {
                 /*mToolbar.setBackgroundColor(Color.parseColor("#4E8A92"))
                 btn.setBackgroundColor(Color.parseColor("#4E8A92"))*/
-                val profil = ProfilFragment.newInstance()
-                openFragment(profil)
+                val AddEventFragment = AddEventFragment.newInstance()
+                openFragment(AddEventFragment)
                 return@OnNavigationItemSelectedListener true
             }
         }

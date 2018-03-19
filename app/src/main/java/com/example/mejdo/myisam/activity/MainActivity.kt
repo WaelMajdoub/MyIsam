@@ -62,19 +62,13 @@ class MainActivity : AppCompatActivity() {
             val password=editText2.text.toString().trim()
 
             if (email.isEmpty() && password.isEmpty() ){
-                var snackbar: Snackbar = Snackbar.make(relativelayout,"Please enter your email and password ! ", Snackbar.LENGTH_LONG)
-                snackbar.show()
-           //     Toast.makeText(this,"Please enter your email and password", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Please enter your email and password", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }else if (email.isEmpty()){
-                var snackbar: Snackbar = Snackbar.make(relativelayout,"Please enter your email !", Snackbar.LENGTH_LONG)
-                snackbar.show()
-           //     Toast.makeText(this,"Please enter your email", Toast.LENGTH_LONG).show()
+               Toast.makeText(this,"Please enter your email", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }else if (password.isEmpty()){
-                var snackbar: Snackbar = Snackbar.make(relativelayout,"Please enter your password !", Snackbar.LENGTH_LONG)
-                snackbar.show()
-                //Toast.makeText(this,"Please enter your password", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Please enter your password", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
             signIn(view,email,password)
@@ -94,14 +88,10 @@ class MainActivity : AppCompatActivity() {
                         finish()
                         progressBar.dismiss()
                     } else {
-                        var snackbar: Snackbar = Snackbar.make(relativelayout,"Sorry!"+ task.exception?.message, Snackbar.LENGTH_LONG)
-                        snackbar.show()
                         progressBar.dismiss()
-                        //   Toast.makeText(this, "Sorry " + task.exception?.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Sorry " + task.exception?.message, Toast.LENGTH_LONG).show()
                     }
                 })
-
-
     }
 
 }

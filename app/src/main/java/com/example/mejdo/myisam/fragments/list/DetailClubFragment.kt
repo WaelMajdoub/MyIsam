@@ -31,8 +31,13 @@ class DetailClubFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_detail_club, container, false)
         nome=view.findViewById(R.id.name_club)
-
         val value = this.arguments!!.getString("key")
+        val id = this.arguments!!.getString("id")
+        val bundle = Bundle()
+        bundle.putString("id", id)
+        val ListeEventFragment= ListeEventFragment.newInstance()
+        ListeEventFragment.setArguments(bundle);
+
         nome.text=value
 
 
@@ -40,10 +45,9 @@ class DetailClubFragment : Fragment() {
 
         eve=view.findViewById(R.id.event)
         eve.setOnClickListener{
-            val Liste_Event = ListeEventFragment.newInstance()
             val fragmentManager = activity!!.supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fargment_container, Liste_Event)
+            fragmentTransaction.replace(R.id.fargment_container, ListeEventFragment)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
