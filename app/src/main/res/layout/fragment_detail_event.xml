@@ -12,6 +12,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
+        android:id="@+id/nameEvent"
         android:text="Formation symphony"
         android:textColor="#047d92"
         android:textSize="20sp"
@@ -39,7 +40,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/desc"
+                    android:id="@+id/descEvent"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableTint="#FF4081"
@@ -53,7 +54,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/date"
+                    android:id="@+id/dateEvent"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -68,7 +69,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/forma"
+                android:id="@+id/formEvent"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -84,7 +85,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/prix"
+                    android:id="@+id/prixEvent"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"

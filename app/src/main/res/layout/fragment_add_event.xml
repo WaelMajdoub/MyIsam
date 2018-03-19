@@ -16,7 +16,7 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -87,10 +87,23 @@
                     android:layout_marginTop="16dp"
                     android:singleLine="true"
                     android:drawableTint="#FF4081"
-                    android:hint="Description"
+                    android:hint="Date"
                     />
             </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <EditText
+                    android:id="@+id/prix"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:singleLine="true"
+                    android:drawableTint="#FF4081"
+                    android:hint="prix"
+                    />
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/save"
@@ -105,6 +118,6 @@
                 />
             />
         </LinearLayout>
-    </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

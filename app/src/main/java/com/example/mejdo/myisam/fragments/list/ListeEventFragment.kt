@@ -72,11 +72,16 @@ class ListeEventFragment : Fragment() {
 
                           }
                         }
-
-
                     }
+
                     val adapter= adapter_liste_event(view.context, R.layout.my_liste_item_event, Eventlist)
                     listView.adapter=adapter
+                    listView.setOnItemClickListener{
+                        parent:AdapterView<*>? , view: View? ,position:Int ,id:Long ->
+                        val E=Eventlist[position]
+                        detail(E)
+
+                    }
 
                 }
             }
@@ -84,6 +89,27 @@ class ListeEventFragment : Fragment() {
         return view
 
     }
+
+    private fun detail(event:Events){
+
+        val bundle = Bundle()
+        bundle.putString("name_event", event.name_event)
+        bundle.putString("description", event.description)
+        bundle.putString("formateur", event.formateur)
+        bundle.putString("date", event.date)
+        bundle.putString("prix", event.prix)
+        bundle.putString("idclub", event.idclub)
+        val DetailEventFragment = DetailEventFragment.newInstance()
+        DetailEventFragment.setArguments(bundle);
+        val fragmentManager = activity!!.supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fargment_container, DetailEventFragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+
+    }
+
+
     companion object {
         fun newInstance() : ListeEventFragment = ListeEventFragment()
     }

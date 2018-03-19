@@ -34,6 +34,8 @@ class AddEventFragment : Fragment() {
     lateinit var editText2 : EditText
     lateinit var editText3 : EditText
     lateinit var editText4 : EditText
+    lateinit var editText5 : EditText
+
 
     lateinit var mAuth: FirebaseAuth
 
@@ -46,19 +48,22 @@ class AddEventFragment : Fragment() {
         editText2 = view.findViewById<EditText>(R.id.type)
         editText3 = view.findViewById<EditText>(R.id.description)
         editText4 = view.findViewById<EditText>(R.id.date)
+        editText5 = view.findViewById<EditText>(R.id.prix)
 
         save.setOnClickListener{
             val name= editText1.text.toString().trim()
             val type= editText2.text.toString().trim()
             val description= editText3.text.toString().trim()
             val date= editText4.text.toString().trim()
+            val prix= editText5.text.toString().trim()
+
             mAuth=FirebaseAuth.getInstance()
             val uid=mAuth.currentUser?.uid
 
             val id = this.arguments!!.getString("id")
             val myDataBase= FirebaseDatabase.getInstance().getReference("Events")
             val eventId = myDataBase.push().key
-            val event = Events(eventId, name, type, description , date ,id)
+            val event = Events(eventId, name, type, description , date ,prix,id)
             myDataBase.child(eventId).setValue(event).addOnCompleteListener{
                 Toast.makeText(view.context,"Saved succesfuly.",Toast.LENGTH_SHORT).show()
             }
