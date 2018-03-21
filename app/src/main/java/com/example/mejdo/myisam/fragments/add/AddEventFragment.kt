@@ -11,15 +11,18 @@ import android.widget.EditText
 import android.widget.Toast
 
 import com.example.mejdo.myisam.R
-import com.example.mejdo.myisam.model.Clubs
+import com.example.mejdo.myisam.fragments.list.TimePickerFragment
 import com.example.mejdo.myisam.model.Events
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import android.content.ContentValues.TAG
-import android.util.Log
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.ValueEventListener
+import android.R.attr.defaultValue
+import android.R.attr.key
+import android.R.attr.key
+import android.widget.TextView
+
+
+
+
 
 
 
@@ -30,12 +33,13 @@ import com.google.firebase.database.ValueEventListener
 class AddEventFragment : Fragment() {
 
     lateinit var save: Button
+    lateinit var timePicker: Button
+
     lateinit var editText1 : EditText
     lateinit var editText2 : EditText
     lateinit var editText3 : EditText
     lateinit var editText4 : EditText
     lateinit var editText5 : EditText
-
 
     lateinit var mAuth: FirebaseAuth
 
@@ -43,14 +47,25 @@ class AddEventFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_event, container, false)
 
-        save = view.findViewById<Button>(R.id.save)
+
+
+
+
+
+
+
         editText1 = view.findViewById<EditText>(R.id.name)
         editText2 = view.findViewById<EditText>(R.id.type)
         editText3 = view.findViewById<EditText>(R.id.description)
         editText4 = view.findViewById<EditText>(R.id.date)
         editText5 = view.findViewById<EditText>(R.id.prix)
 
-        save.setOnClickListener{
+
+        save = view.findViewById<Button>(R.id.save)
+
+
+            save.setOnClickListener{
+
             val name= editText1.text.toString().trim()
             val type= editText2.text.toString().trim()
             val description= editText3.text.toString().trim()
@@ -59,7 +74,6 @@ class AddEventFragment : Fragment() {
 
             mAuth=FirebaseAuth.getInstance()
             val uid=mAuth.currentUser?.uid
-
             val id = this.arguments!!.getString("id")
             val myDataBase= FirebaseDatabase.getInstance().getReference("Events")
             val eventId = myDataBase.push().key
@@ -70,9 +84,24 @@ class AddEventFragment : Fragment() {
 
 
         }
+
+
+
+
+        timePicker = view.findViewById<Button>(R.id.timePicker)
+        timePicker.setOnClickListener(View.OnClickListener {
+            val newFragment = TimePickerFragment()
+            newFragment.show(activity!!.fragmentManager, "msg")
+        })
+
         return view
 
+
+
+
     }
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
     }
@@ -85,4 +114,6 @@ class AddEventFragment : Fragment() {
 
 
     }
+
+
 }// Required empty public constructor

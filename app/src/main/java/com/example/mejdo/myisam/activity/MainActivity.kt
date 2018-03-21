@@ -4,8 +4,6 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.*
 import com.example.mejdo.myisam.R
@@ -47,9 +45,13 @@ class MainActivity : AppCompatActivity() {
         register= findViewById(R.id.register)
         progressBar= ProgressDialog(this)
 
-      /*  mToolbar=findViewById(R.id.mainToolbar)
-        setSupportActionBar(mToolbar)
-        supportActionBar!!.setTitle("Login")*/
+
+
+
+
+        /*  mToolbar=findViewById(R.id.mainToolbar)
+          setSupportActionBar(mToolbar)
+          supportActionBar!!.setTitle("Login")*/
 
         register.setOnClickListener{
             var intent : Intent = Intent(applicationContext, Register::class.java)
