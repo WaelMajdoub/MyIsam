@@ -41,7 +41,7 @@ class ListClubFragment : Fragment() {
 
 
         clublist = mutableListOf()
-        listView=view.findViewById(R.id.listClub)
+        listView=view.findViewById<ListView>(R.id.listClub)
         ref= FirebaseDatabase.getInstance().getReference("Clubs")
         ref.addValueEventListener(object :ValueEventListener{
             override fun onCancelled(p0: DatabaseError?) {

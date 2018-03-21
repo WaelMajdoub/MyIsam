@@ -1,6 +1,7 @@
 package com.example.mejdo.myisam.activity
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -10,10 +11,13 @@ import com.example.mejdo.myisam.R
 import com.example.mejdo.myisam.utils.SessionManager
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
 
     var myAuth = FirebaseAuth.getInstance()
+    lateinit var ref :DatabaseReference
     lateinit var session: SessionManager
     lateinit var editText1 : EditText
     lateinit var editText2 : EditText
@@ -85,6 +89,20 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this, OnCompleteListener { task ->
                     if (task.isSuccessful) {
                         session.createLoginSession(email,password)
+
+                        //recupere role user ye sirine
+                        //val currentUser = FirebaseAuth.getInstance().currentUser
+                        //val uid=currentUser!!.uid
+                        //ref=FirebaseDatabase.getInstance().getReference("Users")
+                        //Toast.makeText(this,role, Toast.LENGTH_LONG).show()
+                        //val role
+
+                        val sp= getSharedPreferences("sp",Context.MODE_PRIVATE)
+                        val spp = sp.edit()
+                        //spp.putString("role",role)
+                        spp.putString("role","admin");
+                        spp.apply()
+
                         var intent= Intent(this, Home::class.java)
                         startActivity(intent)
                         finish()

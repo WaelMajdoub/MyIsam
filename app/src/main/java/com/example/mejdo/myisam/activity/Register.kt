@@ -83,6 +83,8 @@ class Register : AppCompatActivity() {
                         userMap["firstName"] = firstName
                         userMap["lastName"] = lastName
                         userMap["cin"] = cin
+                        userMap["email"] = email
+                        userMap["role"] = "User"
 
                         val myDataBase= FirebaseDatabase.getInstance().getReference("Users").child(uid)
                         myDataBase.setValue(userMap).addOnCompleteListener(OnCompleteListener { task ->
