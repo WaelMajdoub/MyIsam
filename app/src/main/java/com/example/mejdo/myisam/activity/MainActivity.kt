@@ -87,9 +87,8 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this, OnCompleteListener { task ->
                     if (task.isSuccessful) {
                         session.createLoginSession(email,password)
-
-                        //recupere role user ye sirine
-                    //    val currentUser = FirebaseAuth.getInstance().currentUser
+                     //recupere role user ye sirine
+                     //    val currentUser = FirebaseAuth.getInstance().currentUser
                     //    val uid=currentUser!!.uid
                       //  ref=FirebaseDatabase.getInstance().getReference("Users")
 
