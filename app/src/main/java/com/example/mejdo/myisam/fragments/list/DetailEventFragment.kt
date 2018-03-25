@@ -39,7 +39,6 @@ class DetailEventFragment : Fragment() {
         formEvent=view.findViewById(R.id.formEvent)
         prixEvent=view.findViewById(R.id.prixEvent)
         descEvent=view.findViewById(R.id.descEvent)
-
         val name_event = this.arguments!!.getString("name_event")
         val description = this.arguments!!.getString("description")
         val formateur = this.arguments!!.getString("formateur")
@@ -50,11 +49,6 @@ class DetailEventFragment : Fragment() {
         formEvent.text=formateur
         descEvent.text=description
         prixEvent.text=prix
-
-
-
-
-
         part=view.findViewById(R.id.save)
         relativelayout=view.findViewById(R.id.cord)
         part.setOnClickListener{

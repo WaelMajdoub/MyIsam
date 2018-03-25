@@ -42,8 +42,6 @@ class DetailClubFragment : Fragment() {
 
 
         nome.text=value
-
-
         relativelayout=view.findViewById(R.id.cord)
 
         eve=view.findViewById(R.id.event)
@@ -67,8 +65,6 @@ class DetailClubFragment : Fragment() {
             fragmentTransaction.replace(R.id.fargment_container, AddEventFragment)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
-
-
         }
 
         return view

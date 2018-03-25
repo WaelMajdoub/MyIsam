@@ -4,12 +4,15 @@
     <item
         android:id="@+id/listClub"
         android:icon="@drawable/list"
-        android:title="Club"
+        android:title="liste Club"
         />
     <item
-        android:id="@+id/addClub"
+        android:id="@+id/demande"
+        android:icon="@drawable/list"
+        android:title="Club" />
+
+    <item
+        android:id="@+id/demandeEvent"
         android:icon="@drawable/list"
         android:title="Event" />
-
-
 </menu>

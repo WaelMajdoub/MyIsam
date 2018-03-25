@@ -1,6 +1,10 @@
 package com.example.mejdo.myisam.fragments.add
 import android.R.attr.*
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +18,16 @@ import android.util.Log
 import android.view.ViewParent
 import android.widget.*
 import com.example.mejdo.myisam.fragments.list.adapter_liste_event
+import com.example.mejdo.myisam.R.id.timePicker
+import android.widget.TimePicker
+
+import java.util.*
+
+
 /**
  * A simple [Fragment] subclass.
  */
-class AddEventFragment : Fragment() {
+class AddEventFragment  : Fragment()   {
 
     lateinit var save: Button
     lateinit var timePicker: Button
@@ -27,7 +37,7 @@ class AddEventFragment : Fragment() {
     lateinit var editText5 : EditText
     lateinit var mAuth: FirebaseAuth
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    @RequiresApi(Build.VERSION_CODES.N) override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?  {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_event, container, false)
         var names= arrayOf("educatif","loisir","music")
@@ -45,17 +55,13 @@ class AddEventFragment : Fragment() {
             }
             override fun onItemSelected(parent: AdapterView<*>?, view:  View?, position: Int, id: Long) {
                // Toast.makeText(context,"Saved succesfuly."+names[position],Toast.LENGTH_SHORT).show()
-
-
             }
-
         }
             save = view.findViewById<Button>(R.id.save)
             save.setOnClickListener{
-               val size = spin.getSelectedItem().toString()
-                Toast.makeText(context,"Saved succesfuly."+size,Toast.LENGTH_SHORT).show()
-
-                val name= editText1.text.toString().trim()
+             val size = spin.getSelectedItem().toString()
+           //  Toast.makeText(context,"Saved succesfuly."+size,Toast.LENGTH_SHORT).show()
+            val name= editText1.text.toString().trim()
             val description= editText3.text.toString().trim()
             val date= editText4.text.toString().trim()
             val prix= editText5.text.toString().trim()
@@ -65,26 +71,38 @@ class AddEventFragment : Fragment() {
             val id = this.arguments!!.getString("id")
             val myDataBase= FirebaseDatabase.getInstance().getReference("Events")
             val eventId = myDataBase.push().key
-            val event = Events(eventId, name, size, description , date ,prix,id)
-            myDataBase.child(eventId).setValue(event).addOnCompleteListener{
-                Toast.makeText(view.context,"Saved succesfuly.",Toast.LENGTH_SHORT).show()
+                val etat="0"
+                val event = Events(eventId, name, size, description , date ,prix,etat,id)
+                myDataBase.child(eventId).setValue(event).addOnCompleteListener{
+                Toast.makeText(view.context,"Veuillez attendez la confirmation.",Toast.LENGTH_SHORT).show()
             }
         }
 
 
-        timePicker = view.findViewById<Button>(R.id.timePicker)
-        timePicker.setOnClickListener(View.OnClickListener {
-            val newFragment = TimePickerFragment()
-            newFragment.show(activity!!.fragmentManager, "msg")
-        })
-        return view
+
+
+
+            timePicker = view.findViewById<Button>(R.id.timePicker)
+            timePicker.setOnClickListener(View.OnClickListener {
+                 val newFragment = TimePickerFragment()
+                 newFragment.show(activity!!.fragmentManager, "msg")
+
+
+            })
+
+
+
+
+
+
+             return view
     }
+
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
     }
-
     companion object {
         fun newInstance(): AddEventFragment = AddEventFragment()
     }

@@ -22,6 +22,8 @@ class ListClubFragment : Fragment() {
     lateinit var listView:ListView
     lateinit var ref: DatabaseReference
     lateinit var clublist:MutableList<Clubs>
+    lateinit var listDem:MutableList<Clubs>
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater!!.inflate(R.layout.fragment_list_club, container, false)
@@ -41,6 +43,8 @@ class ListClubFragment : Fragment() {
 
 
         clublist = mutableListOf()
+        listDem = mutableListOf()
+
         listView=view.findViewById<ListView>(R.id.listClub)
         ref= FirebaseDatabase.getInstance().getReference("Clubs")
         ref.addValueEventListener(object :ValueEventListener{
@@ -53,11 +57,32 @@ class ListClubFragment : Fragment() {
                     clublist.clear()
                     for(e in p0.children){
                         val club=e.getValue(Clubs::class.java)
-                        clublist.add(club!!)
-                    }
-                    val adapter= AdapterListeClub(view.context, R.layout.my_liste_item, clublist)
-                    listView.adapter=adapter
+                        if (club != null) {
+                            if (club.etat=="0"){
+                                   //role devient admin_club
 
+                                listDem.add(club!!)
+
+
+                            }
+                            if (club.etat=="1"){
+                                //role devient admin_club
+
+                                clublist.add(club!!)
+
+                            }
+
+
+
+                    }}
+
+
+                    val adapter= AdapterListeClub(view.context, R.layout.my_liste_item,clublist)
+                    listView.adapter=adapter
+                    val bundle = Bundle()
+                  //  bundle.putParcelableArrayList("liste",listDem(Clubs))
+                    val ListeDemandeClub = ListeDemandeClub.newInstance()
+                    ListeDemandeClub.setArguments(bundle);
                     listView.setOnItemClickListener{
                         parent:AdapterView<*>? , view: View? ,position:Int ,id:Long ->
                         val C=clublist[position]
@@ -95,4 +120,5 @@ class ListClubFragment : Fragment() {
         fun newInstance() : ListClubFragment = ListClubFragment()
     }
 }
+
 

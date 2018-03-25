@@ -33,12 +33,10 @@ class Home : AppCompatActivity() {
     lateinit var btn:BottomNavigationView
     lateinit var session:SessionManager
 
-
     @SuppressLint("ResourceAsColor") private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         btn=findViewById(R.id.navigation)
         val sp= getSharedPreferences("sp", Context.MODE_PRIVATE)
         val role = sp.getString("role","")
-        if (role=="user"){
             when (item.itemId) {
 
                 R.id.listClub -> {
@@ -73,7 +71,6 @@ class Home : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
             }
-        }else if (role=="admin"){
             when (item.itemId) {
 
                 R.id.listClub -> {
@@ -85,7 +82,6 @@ class Home : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
             }
-        }
 
         false
     }
@@ -105,7 +101,6 @@ class Home : AppCompatActivity() {
 
         session = SessionManager(applicationContext)
         session.checkLogin()
-
         mToolbar=findViewById(R.id.mainToolbar)
         setSupportActionBar(mToolbar)
         supportActionBar!!.setTitle("Home")
