@@ -101,6 +101,7 @@ class ListClubFragment : Fragment() {
         val bundle = Bundle()
         bundle.putString("key", club.name)
         bundle.putString("id", club.clubId)
+        bundle.putString("des", club.description)
 
 
 

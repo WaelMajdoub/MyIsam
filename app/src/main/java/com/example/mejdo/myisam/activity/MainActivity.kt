@@ -1,5 +1,4 @@
 package com.example.mejdo.myisam.activity
-
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
@@ -18,9 +17,6 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-
-
-
 
 class MainActivity : AppCompatActivity() {
     var myAuth = FirebaseAuth.getInstance()

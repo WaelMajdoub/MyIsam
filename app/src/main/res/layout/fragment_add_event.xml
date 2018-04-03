@@ -12,7 +12,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
-        android:text="Ajouter club"
+        android:text="Ajouter evenement"
         android:textColor="#047d92"
         android:textSize="20sp"
         android:textStyle="bold" />

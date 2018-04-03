@@ -66,8 +66,8 @@ class Home : AppCompatActivity() {
                 R.id.profil -> {
                     /*mToolbar.setBackgroundColor(Color.parseColor("#4E8A92"))
                     btn.setBackgroundColor(Color.parseColor("#4E8A92"))*/
-                    val AddEventFragment = AddEventFragment.newInstance()
-                    openFragment(AddEventFragment)
+                    val ProfilFragment = ProfilFragment.newInstance()
+                    openFragment(ProfilFragment)
                     return@OnNavigationItemSelectedListener true
                 }
             }

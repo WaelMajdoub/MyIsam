@@ -4,19 +4,19 @@
     <item
         android:id="@+id/listClub"
         android:icon="@drawable/list"
-        android:title="@string/menu_list_club"
+        android:title="club"
        />
     <item
         android:id="@+id/addClub"
         android:icon="@drawable/add"
-        android:title="@string/menu_add_club" />
+        android:title="add club" />
     <item
         android:id="@+id/about"
         android:icon="@drawable/lock"
         android:title="@string/menu_about" />
     <item
         android:id="@+id/profil"
-        android:icon="@drawable/lock"
-        android:title="@string/menu_about" />
+        android:icon="@drawable/ic_mood_black_24dp"
+        android:title="profil" />
 
 </menu>

@@ -6,78 +6,93 @@
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:id="@+id/cord">
-    <TextView
-        android:id="@+id/name_club"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
-        android:text="Jeune ingénieur"
-        android:textColor="#047d92"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="120dp"
-        android:background="#fff"
-        android:elevation="4dp"
-        android:orientation="vertical"
-        android:padding="20dp">
+
+
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+           >
+
+            <TextView
+            android:id="@+id/name_club"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:text="Jeune ingénieur"
+            android:textColor="#047d92"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="description"
+                        android:textStyle="bold"
+                        android:textColor="@color/bleu"
+                        android:layout_marginTop="16dp"
+
+                        />
 
                 <TextView
                     android:id="@+id/desc"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableTint="#FF4081"
-                    android:singleLine="true"
-                    android:hint="description"
+                    android:text="Description:"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
                     />
-            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
 
                 <TextView
-                    android:id="@+id/date"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:singleLine="true"
-                    android:drawableTint="#FF4081"
-                    android:hint="type"
-                    />
-            </android.support.design.widget.TextInputLayout>
+                    android:text="type"
+                    android:textStyle="bold"
+                    android:textColor="@color/bleu"
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/forma"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:singleLine="true"
-                    android:drawableTint="#FF4081"
-                    android:hint="historique"
                     />
-            </android.support.design.widget.TextInputLayout>
+
+
+                    <TextView
+                        android:id="@+id/type"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="type"
+
+                        />
+            </LinearLayout>
+
+
+
+
+
 
 
             <android.support.design.widget.TextInputLayout
@@ -89,10 +104,9 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:singleLine="true"
                     android:drawableTint="#FF4081"
                     android:hint="responsable club"
-                    />
+                    android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
 
             <Button
@@ -104,8 +118,8 @@
                 android:text="evenement"
                 android:textAllCaps="false"
                 android:textColor="#047d92"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
+
             <Button
                 android:id="@+id/addEvent"
                 android:layout_width="fill_parent"
@@ -115,10 +129,7 @@
                 android:text="Add event"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
             />
         </LinearLayout>
-    </RelativeLayout>
-
 </RelativeLayout>

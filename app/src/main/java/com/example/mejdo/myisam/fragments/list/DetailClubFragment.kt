@@ -24,6 +24,7 @@ class DetailClubFragment : Fragment() {
 
     lateinit var add: Button
     lateinit var nome: TextView
+    lateinit var des: TextView
 
     lateinit var eve : Button
     private lateinit var relativelayout:RelativeLayout
@@ -39,6 +40,9 @@ class DetailClubFragment : Fragment() {
         val bundle = Bundle()
         bundle.putString("id", id)
         ListeEventFragment.setArguments(bundle);
+        des=view.findViewById(R.id.desc)
+        val desc = this.arguments!!.getString("des")
+        des.text=desc
 
 
         nome.text=value

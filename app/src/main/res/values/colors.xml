@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#047d92</color>
+    <color name="colorPrimary">#fff</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#047d92</color>
-
+    <color name="bleu">#047d92</color>
     <color name="grey">#bfbfbf</color>
     <color name="white">#fff</color>
     <color name="black">#000000</color>
     <color name="link_blue">#4d94ff</color>
     <color name="darkRed">#cc0000</color>
     <color name="colordarkRed">#cc0000</color>
-
     <color name="mcam_color_light">#FAFAFA</color>
     <color name="mcam_color_dark">#424242</color>
 >>>>>>> d0759c2b02ceaeb7bb740a5e7e2b5127ce181593
