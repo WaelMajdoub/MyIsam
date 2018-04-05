@@ -10,21 +10,28 @@
 
 
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
+
            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
 
             <TextView
             android:id="@+id/name_club"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:gravity="center_horizontal"
             android:text="Jeune ingénieur"
             android:textColor="#047d92"
@@ -131,5 +138,7 @@
                 android:textColor="#fff"
                 android:textSize="18sp" />
             />
-        </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
 </RelativeLayout>

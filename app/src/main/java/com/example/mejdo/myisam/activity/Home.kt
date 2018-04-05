@@ -74,13 +74,13 @@ class Home : AppCompatActivity() {
             when (item.itemId) {
 
                 R.id.listClub -> {
-                    /* mToolbar.setBackgroundColor(Color.parseColor("#073C43"))
-                     btn.setBackgroundColor(Color.parseColor("#073C43"))*/
-                    //  mToolbar.setBackgroundColor(R.color.white)
-                    val ListClubFragment = ListClubFragment.newInstance()
-                    openFragment(ListClubFragment)
-                    return@OnNavigationItemSelectedListener true
-                }
+                /* mToolbar.setBackgroundColor(Color.parseColor("#073C43"))
+                 btn.setBackgroundColor(Color.parseColor("#073C43"))*/
+                //  mToolbar.setBackgroundColor(R.color.white)
+                val ListClubFragment = ListClubFragment.newInstance()
+                openFragment(ListClubFragment)
+                return@OnNavigationItemSelectedListener true
+            }
             }
 
         false

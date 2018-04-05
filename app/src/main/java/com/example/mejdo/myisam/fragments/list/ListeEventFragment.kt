@@ -1,15 +1,19 @@
 package com.example.mejdo.myisam.fragments.list
 
 
+import android.content.Context
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
+import android.widget.Toast
 import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.fragments.add.AddEventFragment
 import com.example.mejdo.myisam.model.Clubs
 import com.example.mejdo.myisam.model.Events
 import com.google.firebase.database.*
@@ -22,10 +26,25 @@ class ListeEventFragment : Fragment() {
     lateinit var listView: ListView
     lateinit var ref: DatabaseReference
     lateinit var Eventlist:MutableList<Events>
+    lateinit var fab:FloatingActionButton
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.liste_event, container, false)
+        fab=view.findViewById<View>(R.id.fab) as FloatingActionButton
+        fab.setOnClickListener {
+            val id = this.arguments!!.getString("id")
+            val bundle = Bundle()
+            bundle.putString("id", id)
+            val AddEventFragment = AddEventFragment.newInstance()
+            AddEventFragment.setArguments(bundle);
+            val fragmentManager = activity!!.supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fargment_container, AddEventFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
+
      /*   listView=view.findViewById(R.id.list_event)
         var list= mutableListOf<Events>()
         list.add(Events("1", "formation symphony", "formation pour les débutant", "karwi syrine", "12/04/2018", "00"))

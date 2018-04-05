@@ -54,6 +54,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         Toast.makeText(getActivity(),"heur"+hourOfDay+":"+minute,Toast.LENGTH_LONG).show();
+       
         AddEventFragment Add = new AddEventFragment();
   /*   Bundle bundle = new Bundle();
         bundle.putInt("he", hourOfDay);

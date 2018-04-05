@@ -24,8 +24,8 @@
             android:name=".activity.Home"
             android:label="@string/title_activity_home" />
         <activity android:name=".add_club" />
-        <activity android:name=".about_ac"></activity>
-        <activity android:name=".activity.Home_admin"></activity>
+        <activity android:name=".about_ac" />
+        <activity android:name=".activity.Home_admin" />
     </application>
 
 </manifest>
