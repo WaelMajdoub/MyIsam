@@ -75,6 +75,8 @@ class ListeDemandeClub : Fragment() {
         bundle.putString("key", club.name)
         bundle.putString("id", club.clubId)
         bundle.putString("etat", club.etat)
+        bundle.putString("iduser", club.iduser)
+
         val DetailDemandeClub = DetailDemandeClub.newInstance()
         DetailDemandeClub.setArguments(bundle);
         val fragmentManager = activity!!.supportFragmentManager

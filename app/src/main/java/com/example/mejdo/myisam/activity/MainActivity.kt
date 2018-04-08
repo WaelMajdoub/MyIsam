@@ -1,4 +1,5 @@
 package com.example.mejdo.myisam.activity
+import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
@@ -95,12 +96,24 @@ class MainActivity : AppCompatActivity() {
                         val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
                         mUserReference.addValueEventListener(object : ValueEventListener {
                             override fun onDataChange(snapshot: DataSnapshot) {
-                                val role = snapshot.child("role").value as String
-                                val sp= getSharedPreferences("sp",Context.MODE_PRIVATE)
-                                val spp = sp.edit()
-                                spp.putString("role",role);
-                                spp.apply()
+                                  val role = snapshot.child("role").value as String
+                              //  val sp= getSharedPreferences("sp",Context.MODE_PRIVATE)
+                              //  val spp = sp.edit()
+                              //  spp.putString("role",role);
+                              //  spp.apply()
+                                if ((role=="user") || (role=="responsable")){
+                                    var intent= Intent(this@MainActivity, Home::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                   // Toast.makeText(this,"Role="+role, Toast.LENGTH_LONG).show()
 
+                                }
+                                else {
+                                    var intent= Intent(this@MainActivity, Home_admin::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                   // Toast.makeText(this,"Role="+role, Toast.LENGTH_LONG).show()
+                                }
 
                             }
                             override fun onCancelled(databaseError: DatabaseError) {}
@@ -113,21 +126,9 @@ class MainActivity : AppCompatActivity() {
                         // val role
                        //  val mobileNumExistanceQuery = ref.orderByChild("email").equalTo(email)
 
-                        val sp= getSharedPreferences("sp", Context.MODE_PRIVATE)
-                        val role = sp.getString("role","")
-                        if (role=="user"){
-                        var intent= Intent(this, Home::class.java)
-                        startActivity(intent)
-                        finish()
-                            Toast.makeText(this,"Role="+role, Toast.LENGTH_LONG).show()
+                       // val sp= getSharedPreferences("sp", Context.MODE_PRIVATE)
+                      //  val role = sp.getString("role","")
 
-                        }
-                        else {
-                            var intent= Intent(this, Home_admin::class.java)
-                            startActivity(intent)
-                            finish()
-                            Toast.makeText(this,"Role="+role, Toast.LENGTH_LONG).show()
-                        }
 
 
 

@@ -22,8 +22,10 @@ class ProfilFragment : Fragment() {
     var myAuth = FirebaseAuth.getInstance()
     lateinit var ref :DatabaseReference
     lateinit var mUserName:EditText
-    lateinit var mUserEmail:TextView
-  //  lateinit var mDatabase : DatabaseReference
+    lateinit var np:TextView
+    lateinit var email:EditText
+
+    //  lateinit var mDatabase : DatabaseReference
   //  lateinit var mAuth: FirebaseAuth
     private var mDatabaseReference: DatabaseReference? = null
     private var mDatabase: FirebaseDatabase? = null
@@ -34,20 +36,27 @@ class ProfilFragment : Fragment() {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_profil, container, false)
         //mUserName= view.findViewById(R.id.profilName)
-        mUserEmail= view.findViewById(R.id.profilEmail)
+        np= view.findViewById(R.id.np)
+        email=view.findViewById(R.id.Email)
         mAuth=FirebaseAuth.getInstance()
       //  val uid=mAuth.currentUser?.uid
-      //  val email= mAuth.currentUser?.email
+
 
         mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase!!.reference!!.child("Users")
         mAuth = FirebaseAuth.getInstance()
         val mUser = mAuth!!.currentUser
         val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
+
         mUserReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val name = snapshot.child("firstName").value as String
-                mUserEmail.setText(name)
+                val pre = snapshot.child("lastName").value as String
+                val em = snapshot.child("email").value as String
+
+                email.setText(em)
+                np.setText(name+" "+pre)
+
 
 
             }

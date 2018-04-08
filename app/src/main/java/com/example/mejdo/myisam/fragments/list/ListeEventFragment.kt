@@ -18,16 +18,15 @@ import com.example.mejdo.myisam.model.Clubs
 import com.example.mejdo.myisam.model.Events
 import com.google.firebase.database.*
 
-
 /**
  * A simple [Fragment] subclass.
  */
+
 class ListeEventFragment : Fragment() {
     lateinit var listView: ListView
     lateinit var ref: DatabaseReference
     lateinit var Eventlist:MutableList<Events>
     lateinit var fab:FloatingActionButton
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.liste_event, container, false)
