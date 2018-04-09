@@ -46,21 +46,13 @@
                     android:hint="Nom club"
                     />
             </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/type"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:singleLine="true"
-                    android:drawableTint="#FF4081"
-                    android:hint="Type club"
-                    />
-            </android.support.design.widget.TextInputLayout>
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spin"
+                android:layout_marginTop="16dp"
+                >
+            </Spinner>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"

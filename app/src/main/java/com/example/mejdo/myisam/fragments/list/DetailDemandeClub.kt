@@ -59,7 +59,7 @@ class DetailDemandeClub : Fragment() {
             Toast.makeText(view.context,"club accepter",Toast.LENGTH_SHORT).show()
             mDatabaseReferenceuser=mDatabase!!.reference!!.child("Users")
             val mUser = mDatabaseReferenceuser!!.child(iduser).child("role").setValue("responsable")
-            val intent= Intent()
+          /*  val intent= Intent()
             val pendingIntent=PendingIntent.getActivity(context,0,intent,0)
             val notification=Notification.Builder(context).setSmallIcon(R.drawable.navigation_empty_icon)
                     .setContentTitle("Demande d'ajout d'un club")
@@ -68,7 +68,7 @@ class DetailDemandeClub : Fragment() {
 
             notification.setContentIntent(pendingIntent)
             val noticationManager= context!!.getSystemService(Context.NOTIFICATION_SERVICE)as NotificationManager
-            noticationManager.notify(0,notification.build())
+            noticationManager.notify(0,notification.build())*/
             /*             mUserReference.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                        val ch = snapshot.child("etat")

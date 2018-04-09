@@ -2,12 +2,14 @@ package com.example.mejdo.myisam.fragments.list
 
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
@@ -27,14 +29,25 @@ class ListeEventFragment : Fragment() {
     lateinit var ref: DatabaseReference
     lateinit var Eventlist:MutableList<Events>
     lateinit var fab:FloatingActionButton
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.liste_event, container, false)
+       // val role1 = this.arguments!!.getString("role1")
+       // Toast.makeText(context,role1,Toast.LENGTH_LONG).show()
+      /*  val args = arguments
+        val index = args!!.getString("role1", "")
+        Toast.makeText(context,index,Toast.LENGTH_LONG).show()*/
+
         fab=view.findViewById<View>(R.id.fab) as FloatingActionButton
-        fab.setOnClickListener {
+            fab.setOnClickListener {
+
+
+
             val id = this.arguments!!.getString("id")
             val bundle = Bundle()
             bundle.putString("id", id)
+
             val AddEventFragment = AddEventFragment.newInstance()
             AddEventFragment.setArguments(bundle);
             val fragmentManager = activity!!.supportFragmentManager

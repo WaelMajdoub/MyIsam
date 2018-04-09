@@ -3,8 +3,6 @@ package com.example.mejdo.myisam.fragments.list;
 /**
  * Created by lenovo on 21/03/2018.
  */
-
-
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -53,10 +51,11 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
         Toast.makeText(getActivity(),"heur"+hourOfDay+":"+minute,Toast.LENGTH_LONG).show();
-       
+
         AddEventFragment Add = new AddEventFragment();
-  /*   Bundle bundle = new Bundle();
+  /*    q2Bundle bundle = new Bundle();
         bundle.putInt("he", hourOfDay);
         Add.setArguments(bundle);*/
 

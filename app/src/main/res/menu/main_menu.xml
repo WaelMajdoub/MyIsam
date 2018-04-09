@@ -6,10 +6,12 @@
         android:icon="@drawable/list"
         android:title="club"
        />
+
     <item
         android:id="@+id/addClub"
         android:icon="@drawable/add"
         android:title="add club" />
+
     <item
         android:id="@+id/about"
         android:icon="@drawable/lock"

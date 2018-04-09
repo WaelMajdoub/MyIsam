@@ -15,6 +15,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.R.id.listClub
 import com.example.mejdo.myisam.R.id.profil
 import com.example.mejdo.myisam.fragments.add.AddClubFragment
 import com.example.mejdo.myisam.fragments.list.ListClubFragment
@@ -35,8 +36,11 @@ class Home : AppCompatActivity() {
 
     @SuppressLint("ResourceAsColor") private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         btn=findViewById(R.id.navigation)
+
         val sp= getSharedPreferences("sp", Context.MODE_PRIVATE)
+
         val role = sp.getString("role","")
+
             when (item.itemId) {
 
                 R.id.listClub -> {

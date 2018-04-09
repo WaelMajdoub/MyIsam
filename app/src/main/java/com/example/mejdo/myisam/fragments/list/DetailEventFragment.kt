@@ -29,7 +29,6 @@ class DetailEventFragment : Fragment() {
     lateinit var prixEvent:TextView
     lateinit var descEvent:TextView
 
-
     private lateinit var relativelayout: RelativeLayout
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment

@@ -11,8 +11,10 @@ import android.widget.EditText
 import android.widget.TextView
 
 import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.fragments.add.AddEventFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.mesclub.*
 
 
 /**
@@ -23,6 +25,8 @@ class ProfilFragment : Fragment() {
     lateinit var ref :DatabaseReference
     lateinit var mUserName:EditText
     lateinit var np:TextView
+    lateinit var mes:TextView
+    lateinit var nb:TextView
     lateinit var email:EditText
 
     //  lateinit var mDatabase : DatabaseReference
@@ -37,6 +41,21 @@ class ProfilFragment : Fragment() {
         val view= inflater.inflate(R.layout.fragment_profil, container, false)
         //mUserName= view.findViewById(R.id.profilName)
         np= view.findViewById(R.id.np)
+        mes= view.findViewById(R.id.mes)
+        nb= view.findViewById(R.id.nb)
+       /* val nombre = this.arguments!!.getString("nbre")
+        nb.setText(nombre)*/
+
+
+        mes.setOnClickListener{
+            val mesclub = com.example.mejdo.myisam.fragments.list.mesclub.newInstance()
+            val fragmentManager = activity!!.supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fargment_container, mesclub)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
+
         email=view.findViewById(R.id.Email)
         mAuth=FirebaseAuth.getInstance()
       //  val uid=mAuth.currentUser?.uid

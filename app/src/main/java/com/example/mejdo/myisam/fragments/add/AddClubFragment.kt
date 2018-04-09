@@ -6,9 +6,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import com.example.mejdo.myisam.model.Clubs
 import com.example.mejdo.myisam.R
 import com.google.firebase.database.FirebaseDatabase
@@ -18,6 +15,7 @@ import com.google.firebase.database.Query
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
+import android.widget.*
 import com.example.mejdo.myisam.utils.SessionManager
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
@@ -42,17 +40,27 @@ class AddClubFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater!!.inflate(R.layout.fragment_add_club, container, false)
-
+        var names= arrayOf("educatif","loisir","music")
          save = view.findViewById<Button>(R.id.save)
          editText1 = view.findViewById<EditText>(R.id.name)
-         editText2 = view.findViewById<EditText>(R.id.type)
          editText3 = view.findViewById<EditText>(R.id.description)
-        session = SessionManager(view.context)
-        session.checkLogin()
+         session = SessionManager(view.context)
+         session.checkLogin()
+        var spin: Spinner =view.findViewById<Spinner>(R.id.spin)
+        var a: ArrayAdapter<String> = ArrayAdapter(activity,android.R.layout.simple_spinner_item,names)
+        a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spin.adapter = a
 
+        spin.onItemSelectedListener=object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+            override fun onItemSelected(parent: AdapterView<*>?, view:  View?, position: Int, id: Long) {
+                // Toast.makeText(context,"Saved succesfuly."+names[position],Toast.LENGTH_SHORT).show()
+            }
+        }
         save.setOnClickListener{
+            val size = spin.getSelectedItem().toString()
             val name= editText1.text.toString().trim()
-            val type= editText2.text.toString().trim()
             val description= editText3.text.toString().trim()
             mAuth=FirebaseAuth.getInstance()
             val uid=mAuth.currentUser?.uid
@@ -64,7 +72,7 @@ class AddClubFragment : Fragment() {
                 val myDataBase = FirebaseDatabase.getInstance().getReference("Clubs")
                 val clubId = myDataBase.push().key
                 val etat="0"
-                val club = Clubs(clubId, name, type,description,etat,uid!!)
+                val club = Clubs(clubId, name, size,description,etat,uid!!)
                 myDataBase.child(clubId).setValue(club).addOnCompleteListener {
                     Toast.makeText(view.context, "Veuillez attendez la confiramation", Toast.LENGTH_SHORT).show()
                 }
@@ -72,6 +80,7 @@ class AddClubFragment : Fragment() {
 
 
         }
+
         return view
 }
 

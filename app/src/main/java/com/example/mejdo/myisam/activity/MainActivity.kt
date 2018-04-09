@@ -9,7 +9,9 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.fragments.add.AddEventFragment
 import com.example.mejdo.myisam.fragments.list.AdapterListeClub
+import com.example.mejdo.myisam.fragments.list.ListeEventFragment
 import com.example.mejdo.myisam.model.Clubs
 import com.example.mejdo.myisam.utils.SessionManager
 import com.google.android.gms.tasks.OnCompleteListener
@@ -97,10 +99,16 @@ class MainActivity : AppCompatActivity() {
                         mUserReference.addValueEventListener(object : ValueEventListener {
                             override fun onDataChange(snapshot: DataSnapshot) {
                                   val role = snapshot.child("role").value as String
+
                               //  val sp= getSharedPreferences("sp",Context.MODE_PRIVATE)
                               //  val spp = sp.edit()
                               //  spp.putString("role",role);
                               //  spp.apply()
+                             /*   val mFragment = ListeEventFragment()
+                                val mArgs = Bundle()
+                                mArgs.putString("role1", role)
+                                mFragment.setArguments(mArgs)*/
+
                                 if ((role=="user") || (role=="responsable")){
                                     var intent= Intent(this@MainActivity, Home::class.java)
                                     startActivity(intent)
@@ -122,11 +130,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                        // ref.child(uid).child("role")
+                         // ref.child(uid).child("role")
                         // val role
                        //  val mobileNumExistanceQuery = ref.orderByChild("email").equalTo(email)
-
-                       // val sp= getSharedPreferences("sp", Context.MODE_PRIVATE)
+                        //val sp= getSharedPreferences("sp", Context.MODE_PRIVATE)
                       //  val role = sp.getString("role","")
 
 

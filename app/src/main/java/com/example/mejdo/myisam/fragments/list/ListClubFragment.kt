@@ -12,7 +12,13 @@ import com.example.mejdo.myisam.model.Clubs
 import com.example.mejdo.myisam.R
 import com.google.firebase.database.*
 import android.R.attr.data
-
+import android.app.Notification
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.os.Build
+import android.support.annotation.RequiresApi
 
 
 /**
@@ -52,7 +58,7 @@ class ListClubFragment : Fragment() {
 
             }
 
-            override fun onDataChange(p0: DataSnapshot?) {
+            @RequiresApi(Build.VERSION_CODES.JELLY_BEAN) override fun onDataChange(p0: DataSnapshot?) {
                 if (p0!!.exists()){
                     clublist.clear()
                     for(e in p0.children){
