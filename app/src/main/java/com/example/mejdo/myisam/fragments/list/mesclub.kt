@@ -55,7 +55,7 @@ class mesclub : Fragment() {
                     for(e in p0.children){
                         val club=e.getValue(Clubs::class.java)
                         if (club != null) {
-                            if (club.iduser==mUser!!.uid){
+                            if ((club.iduser==mUser!!.uid) &&(club.etat=="1")){
                                 i++
                                 //role devient admin_club
                                 clublist.add(club!!)
@@ -67,12 +67,13 @@ class mesclub : Fragment() {
 
 
                         }}
-                 /*   val bundle = Bundle()
+
+                   /* val bundle = Bundle()
                     bundle.putString("nbre", i.toString())
                     val ProfilFragment = ProfilFragment.newInstance()
-                    ProfilFragment.setArguments(bundle);
+                    ProfilFragment.setArguments(bundle)*/
 
-                    Toast.makeText(context,i, Toast.LENGTH_LONG).show()*/
+                    Toast.makeText(context,i.toString(), Toast.LENGTH_LONG).show()
 
                     val adapter= AdapterListeClub(view.context, R.layout.my_liste_item,clublist)
                     listView.adapter=adapter

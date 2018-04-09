@@ -133,6 +133,24 @@
             </android.support.design.widget.TextInputLayout>
 
 
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/formateur_event"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:singleLine="true"
+                    android:drawableTint="#FF4081"
+                    android:hint="formateur"
+                    android:drawableRight="@drawable/ic_face_black_24dp"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

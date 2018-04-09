@@ -131,9 +131,10 @@ class ListeEventFragment : Fragment() {
         bundle.putString("formateur", event.formateur)
         bundle.putString("date", event.date)
         bundle.putString("prix", event.prix)
+        bundle.putString("heure", event.heur)
         bundle.putString("idclub", event.idclub)
         val DetailEventFragment = DetailEventFragment.newInstance()
-        DetailEventFragment.setArguments(bundle);
+        DetailEventFragment.setArguments(bundle)
         val fragmentManager = activity!!.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fargment_container, DetailEventFragment)

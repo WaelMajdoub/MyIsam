@@ -12,6 +12,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.mejdo.myisam.R
 import com.example.mejdo.myisam.fragments.list.ListClubFragment
+import com.example.mejdo.myisam.fragments.list.ListeAllEvent
 import com.example.mejdo.myisam.fragments.list.ListeDemandeClub
 import com.example.mejdo.myisam.fragments.list.ListeDemandeEvent
 import com.example.mejdo.myisam.fragments.profil.ProfilFragment
@@ -50,6 +51,13 @@ class Home_admin : AppCompatActivity() {
 
                     val ListeDemandeClub = ListeDemandeClub.newInstance()
                     openFragment(ListeDemandeClub)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.Event -> {
+                    /* mToolbar.setBackgroundColor(Color.parseColor("#14515A"))
+                      btn.setBackgroundColor(Color.parseColor("#14515A"))*/
+                    val ListeAllEvent = ListeAllEvent.newInstance()
+                    openFragment(ListeAllEvent)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.demandeEvent -> {

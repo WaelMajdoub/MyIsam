@@ -2,16 +2,22 @@ package com.example.mejdo.myisam.fragments.profil
 
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 import com.example.mejdo.myisam.R
 import com.example.mejdo.myisam.fragments.add.AddEventFragment
+import com.example.mejdo.myisam.fragments.list.AdapterListeClub
+import com.example.mejdo.myisam.model.Clubs
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.mesclub.*
@@ -43,7 +49,7 @@ class ProfilFragment : Fragment() {
         np= view.findViewById(R.id.np)
         mes= view.findViewById(R.id.mes)
         nb= view.findViewById(R.id.nb)
-       /* val nombre = this.arguments!!.getString("nbre")
+      /*  val nombre = this.arguments!!.getString("nbre")
         nb.setText(nombre)*/
 
 
@@ -66,6 +72,42 @@ class ProfilFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         val mUser = mAuth!!.currentUser
         val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
+        var i=0
+        ref= FirebaseDatabase.getInstance().getReference("Clubs")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError?) {
+
+            }
+
+            @RequiresApi(Build.VERSION_CODES.JELLY_BEAN) override fun onDataChange(p0: DataSnapshot?) {
+                if (p0!!.exists()){
+                    for(e in p0.children){
+                        val club=e.getValue(Clubs::class.java)
+                        if (club != null) {
+                            if ((club.iduser==mUser!!.uid)  &&(club.etat=="1")){
+                                i++
+                                //role devient admin_club
+
+
+                            }
+
+
+
+
+                        }}
+                    nb.text=i.toString()
+
+
+                    /* val bundle = Bundle()
+                     bundle.putString("nbre", i.toString())
+                     val ProfilFragment = ProfilFragment.newInstance()
+                     ProfilFragment.setArguments(bundle)*/
+
+
+                }
+            }
+
+        })
 
         mUserReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

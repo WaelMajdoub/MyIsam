@@ -35,16 +35,20 @@ class AddEventFragment  : Fragment()   {
     lateinit var editText3 : EditText
     lateinit var editText4 : EditText
     lateinit var editText5 : EditText
+    lateinit var form : EditText
+    lateinit var heur : EditText
     lateinit var mAuth: FirebaseAuth
 
     @RequiresApi(Build.VERSION_CODES.N) override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?  {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_event, container, false)
-        var names= arrayOf("educatif","loisir","music")
+        var names= arrayOf("licence im","licence cm","ingéneur","master","pour tous")
         editText1 = view.findViewById<EditText>(R.id.name)
         editText3 = view.findViewById<EditText>(R.id.description)
         editText4 = view.findViewById<EditText>(R.id.date)
         editText5 = view.findViewById<EditText>(R.id.prix)
+        form=view.findViewById<EditText>(R.id.formateur_event)
+        heur=view.findViewById<EditText>(R.id.heur)
         var spin: Spinner =view.findViewById<Spinner>(R.id.spin)
         var a: ArrayAdapter<String> = ArrayAdapter(activity,android.R.layout.simple_spinner_item,names)
         a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -65,14 +69,18 @@ class AddEventFragment  : Fragment()   {
             val description= editText3.text.toString().trim()
             val date= editText4.text.toString().trim()
             val prix= editText5.text.toString().trim()
+                val f =form.text.toString().trim()
+                val h =heur.text.toString().trim()
 
-            mAuth=FirebaseAuth.getInstance()
+
+
+                mAuth=FirebaseAuth.getInstance()
             val uid=mAuth.currentUser?.uid
             val id = this.arguments!!.getString("id")
             val myDataBase= FirebaseDatabase.getInstance().getReference("Events")
             val eventId = myDataBase.push().key
                 val etat="0"
-                val event = Events(eventId, name, size, description , date ,prix,etat,id)
+                val event = Events(eventId, name, size, f , date,h ,prix,etat,id)
                 myDataBase.child(eventId).setValue(event).addOnCompleteListener{
                 Toast.makeText(view.context,"Veuillez attendez la confirmation.",Toast.LENGTH_SHORT).show()
             }
