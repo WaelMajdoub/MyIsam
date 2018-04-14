@@ -73,6 +73,17 @@ class ListClubFragment : Fragment() {
                             }
                             if (club.etat=="1"){
                                 //role devient admin_club
+                                val intent= Intent()
+                                val pendingIntent= PendingIntent.getActivity(context,0,intent,0)
+                                val notification= Notification.Builder(context).setSmallIcon(R.drawable.navigation_empty_icon)
+                                        .setContentTitle("Confirmation !!")
+                                        .setContentText("Votre demande dajout est confirmé")
+
+
+                                notification.setContentIntent(pendingIntent)
+                                val noticationManager= context!!.getSystemService(Context.NOTIFICATION_SERVICE)as NotificationManager
+                                noticationManager.notify(0,notification.build())
+                                listDem.add(club!!)
 
                                 clublist.add(club!!)
 
@@ -111,12 +122,12 @@ class ListClubFragment : Fragment() {
 
 
 
-        val detail_club = DetailClubFragment.newInstance()
-        detail_club.setArguments(bundle);
+        val ListeEventFragment = ListeEventFragment.newInstance()
+        ListeEventFragment.setArguments(bundle);
 
                        val fragmentManager = activity!!.supportFragmentManager
                        val fragmentTransaction = fragmentManager.beginTransaction()
-                       fragmentTransaction.replace(R.id.fargment_container, detail_club)
+                       fragmentTransaction.replace(R.id.fargment_container, ListeEventFragment)
                        fragmentTransaction.addToBackStack(null)
                        fragmentTransaction.commit()
 

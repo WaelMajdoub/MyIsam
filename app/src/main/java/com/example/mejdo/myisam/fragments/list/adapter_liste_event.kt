@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.mejdo.myisam.R
 import com.example.mejdo.myisam.model.Events
 
@@ -24,6 +26,9 @@ class adapter_liste_event(var mctx: Context, var resource:Int, var items:List<Ev
         textview1.text=event.name_event
         textview2.text=event.date
         textview3.text=event.description
+        /*  imagev.setOnClickListener{
+                  Toast.makeText(context,"lalal",Toast.LENGTH_LONG).show()
+              }*/
         return view
     }
 }

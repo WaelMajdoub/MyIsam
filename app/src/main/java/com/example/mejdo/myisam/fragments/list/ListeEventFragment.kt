@@ -15,9 +15,12 @@ import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
 import com.example.mejdo.myisam.R
+import com.example.mejdo.myisam.activity.Home
+import com.example.mejdo.myisam.activity.Home_admin
 import com.example.mejdo.myisam.fragments.add.AddEventFragment
 import com.example.mejdo.myisam.model.Clubs
 import com.example.mejdo.myisam.model.Events
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 /**
@@ -28,7 +31,11 @@ class ListeEventFragment : Fragment() {
     lateinit var listView: ListView
     lateinit var ref: DatabaseReference
     lateinit var Eventlist:MutableList<Events>
-    lateinit var fab:FloatingActionButton
+ //   lateinit var fab:FloatingActionButton
+    private var mDatabaseReference: DatabaseReference? = null
+    private var mDatabase: FirebaseDatabase? = null
+    private var mAuth: FirebaseAuth? = null
+    var myAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -38,24 +45,48 @@ class ListeEventFragment : Fragment() {
       /*  val args = arguments
         val index = args!!.getString("role1", "")
         Toast.makeText(context,index,Toast.LENGTH_LONG).show()*/
+     /*   mDatabase = FirebaseDatabase.getInstance()
+        mDatabaseReference = mDatabase!!.reference!!.child("Users")
+        mAuth = FirebaseAuth.getInstance()
+        val mUser = mAuth!!.currentUser
+        val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
+        mUserReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val role = snapshot.child("role").value as String
 
-        fab=view.findViewById<View>(R.id.fab) as FloatingActionButton
-            fab.setOnClickListener {
+                //  val sp= getSharedPreferences("sp",Context.MODE_PRIVATE)
+                //  val spp = sp.edit()
+                //  spp.putString("role",role);
+                //  spp.apply()
+                /*   val mFragment = ListeEventFragment()
+                   val mArgs = Bundle()
+                   mArgs.putString("role1", role)
+                   mFragment.setArguments(mArgs)*/
+                fab = view.findViewById<View>(R.id.fab) as FloatingActionButton
+
+                if (role=="responsable"){
+
+                    fab.visibility=View.VISIBLE
+                    fab.setOnClickListener {
+                        val id = this@ListeEventFragment.arguments!!.getString("id")
+                        val bundle = Bundle()
+                        bundle.putString("id", id)
+                        val AddEventFragment = AddEventFragment.newInstance()
+                        AddEventFragment.setArguments(bundle);
+                        val fragmentManager = activity!!.supportFragmentManager
+                        val fragmentTransaction = fragmentManager.beginTransaction()
+                        fragmentTransaction.replace(R.id.fargment_container, AddEventFragment)
+                        fragmentTransaction.addToBackStack(null)
+                        fragmentTransaction.commit()
+                    }
+                }
+
+            }
+            override fun onCancelled(databaseError: DatabaseError) {}
+
+        }) */
 
 
-
-            val id = this.arguments!!.getString("id")
-            val bundle = Bundle()
-            bundle.putString("id", id)
-
-            val AddEventFragment = AddEventFragment.newInstance()
-            AddEventFragment.setArguments(bundle);
-            val fragmentManager = activity!!.supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fargment_container, AddEventFragment)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
-        }
 
      /*   listView=view.findViewById(R.id.list_event)
         var list= mutableListOf<Events>()

@@ -99,12 +99,12 @@ class mesclub : Fragment() {
 
 
 
-        val detail_club = DetailClubFragment.newInstance()
-        detail_club.setArguments(bundle);
+        val MyListeEvent = MyListeEvent.newInstance()
+        MyListeEvent.setArguments(bundle);
 
         val fragmentManager = activity!!.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fargment_container, detail_club)
+        fragmentTransaction.replace(R.id.fargment_container, MyListeEvent)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
 

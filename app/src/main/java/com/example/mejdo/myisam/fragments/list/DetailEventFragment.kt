@@ -62,7 +62,7 @@ class DetailEventFragment : Fragment() {
         fab_main.setOnClickListener(object :View.OnClickListener{
             override fun onClick(p0: View?) {
                 if (isopen) {
-                    fab_main.setImageResource(R.drawable.add)
+                    fab_main.setImageResource(R.drawable.ic_swap_calls_black_24dp)
                     fab_1.startAnimation(fab_close)
                     fab_2.startAnimation(fab_close)
                     fab_main.startAnimation(rotate_acw)
