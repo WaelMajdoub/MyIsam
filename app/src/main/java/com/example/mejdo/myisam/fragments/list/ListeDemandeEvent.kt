@@ -76,6 +76,7 @@ class ListeDemandeEvent : Fragment() {
         bundle.putString("formateur", event.formateur)
         bundle.putString("date", event.date)
         bundle.putString("prix", event.prix)
+        bundle.putString("heure", event.heur)
         bundle.putString("idclub", event.idclub)
         val DetailDemandeEvent = DetailDemandeEvent.newInstance()
         DetailDemandeEvent.setArguments(bundle);

@@ -50,7 +50,7 @@ class ListeAllEvent : Fragment() {
                         }
                     }
 
-                    val adapter= adapter_liste_event(view.context, R.layout.my_liste_item_event, Eventlist)
+                    val adapter= adapter_liste_all_event(view.context, R.layout.my_list_event, Eventlist)
                     listView.adapter=adapter
                     listView.setOnItemClickListener{
                         parent: AdapterView<*>?, view: View?, position:Int, id:Long ->

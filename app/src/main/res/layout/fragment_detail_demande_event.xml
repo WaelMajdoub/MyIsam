@@ -4,120 +4,286 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     android:orientation="vertical"
-    android:id="@+id/cordd"
+    android:id="@+id/cord"
     android:scrollbarAlwaysDrawVerticalTrack="true">
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
-        android:id="@+id/nameEvent"
-        android:text="Formation symphony"
-        android:textColor="#047d92"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="120dp"
-        android:background="#fff"
-        android:elevation="4dp"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:id="@+id/nameEvent"
+                android:text="Formation symphony"
+                android:textColor="#047d92"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="  Niveau"
+                    android:textStyle="bold"
+                    android:drawableLeft="@drawable/ic_club"
+                    android:textColor="@color/bleu"
+                    android:layout_marginTop="16dp"
+                    android:textSize="17sp"
+
+
+                    />
 
                 <TextView
                     android:id="@+id/descEvent"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableTint="#FF4081"
-                    android:singleLine="true"
-                    android:hint="description"
-                    />
-            </android.support.design.widget.TextInputLayout>
+                    android:text="Niveau"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="120dp"
+                    android:textSize="17sp"
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
+                    />
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="  Date"
+                    android:textStyle="bold"
+                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                    android:textColor="@color/bleu"
+                    android:layout_marginTop="16dp"
+                    android:textSize="17sp"
+
+
+                    />
 
                 <TextView
                     android:id="@+id/dateEvent"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:text="date:"
+                    android:textStyle="bold"
                     android:layout_marginTop="16dp"
-                    android:singleLine="true"
-                    android:drawableTint="#FF4081"
-                    android:hint="date"
-                    />
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_marginLeft="140dp"
+                    android:textSize="17sp"
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="  heur"
+                    android:textStyle="bold"
+                    android:textColor="@color/bleu"
+                    android:drawableLeft="@drawable/ic_access_time_black_24dp"
+                    android:layout_marginTop="16dp"
+                    android:textSize="17sp"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/heur_event"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="heur:"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="140dp"
+                    android:textSize="17sp"
+
+
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="  Formateur"
+                    android:textStyle="bold"
+                    android:textColor="@color/bleu"
+                    android:layout_marginTop="16dp"
+                    android:textSize="17sp"
+                    android:drawableLeft="@drawable/ic_face_black_24dp"
+
+
+                    />
 
                 <TextView
                     android:id="@+id/formEvent"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:text="Formateur"
+                    android:textStyle="bold"
                     android:layout_marginTop="16dp"
-                    android:singleLine="true"
-                    android:drawableTint="#FF4081"
-                    android:hint="formateur"
+                    android:layout_marginLeft="100dp"
+                    android:textSize="17sp"
+
+
                     />
-            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
 
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:drawableLeft="@drawable/ic_attach_money_black_24dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="  Prix"
+                    android:textStyle="bold"
+                    android:textColor="@color/bleu"
+                    android:layout_marginTop="16dp"
+                    android:textSize="17sp"
+
+
+                    />
 
                 <TextView
                     android:id="@+id/prixEvent"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:text="Prix"
+                    android:textStyle="bold"
                     android:layout_marginTop="16dp"
-                    android:singleLine="true"
-                    android:drawableTint="#FF4081"
-                    android:hint="prix"
+                    android:layout_marginLeft="150dp"
+                    android:textSize="17sp"
+
+
                     />
-            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+
+
+
+
+
+
+
 
             <Button
-                android:id="@+id/accep"
+                android:id="@+id/save"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@drawable/buttonperso"
-                android:text="Accepter"
-                android:textAllCaps="false"
-                android:textColor="#047d92"
-                android:textSize="18sp"
-                />
-            <Button
-                android:id="@+id/refuser"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_margin="22dp"
                 android:background="#047d92"
-                android:text="Réfuser"
+                android:text="Participer"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp"
+                android:visibility="gone"
                 />
+
+
         </LinearLayout>
-    </RelativeLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="60dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_star_border_black_24dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="240dp"
+            android:src="@drawable/ic_check_black_24dp"
+            android:visibility="gone" />
+        <!-- <TextView
+             android:id="@+id/inter"
+             android:layout_gravity="bottom|end"
+             android:layout_marginBottom="50dp"
+             android:layout_marginLeft="230dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textColor="#000000"
+             android:text="Compose"
+             android:visibility="gone"
+             />-->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="150dp"
+            android:src="@drawable/ic_swap_calls_black_24dp"
+            android:gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+
 
 </RelativeLayout>

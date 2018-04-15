@@ -10,12 +10,16 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import com.example.mejdo.myisam.R
 import com.example.mejdo.myisam.model.Events
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+
+/**
+ * Created by lenovo on 15/04/2018.
+ */
+
 
 /**
  * Created by lenovo on 14/04/2018.
@@ -25,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase
 /**
  * Created by lenovo on 10/03/2018.
  */
-class adapter_my_event(var mctx: Context, var resource:Int, var items:List<Events>)
+class adapter_liste_all_event(var mctx: Context, var resource:Int, var items:List<Events>)
     : ArrayAdapter<Events>(mctx,resource,items){
     private var mDatabaseReference: DatabaseReference? = null
     private var mDatabase: FirebaseDatabase? = null
@@ -44,12 +48,12 @@ class adapter_my_event(var mctx: Context, var resource:Int, var items:List<Event
         textview3.text=event.description
         imagev.setOnClickListener{
 
-            var builder : AlertDialog.Builder=AlertDialog.Builder(context)
-          //  var inflatar:LayoutInflater=layoutInflater
+            var builder : AlertDialog.Builder= AlertDialog.Builder(context)
+            //  var inflatar:LayoutInflater=layoutInflater
             val v : View =layoutInflater.inflate(R.layout.dialog_msg,null)
             builder.setView(v)
             builder.setNegativeButton("No" ,object : DialogInterface.OnClickListener{
-                override fun onClick (dialog:DialogInterface?,which:Int)
+                override fun onClick (dialog: DialogInterface?, which:Int)
                 {
                     if (dialog != null) {
                         dialog.dismiss()
@@ -59,7 +63,7 @@ class adapter_my_event(var mctx: Context, var resource:Int, var items:List<Event
             })
 
             builder.setPositiveButton("Yes" ,object : DialogInterface.OnClickListener{
-                override fun onClick (dialog:DialogInterface?,which:Int)
+                override fun onClick (dialog: DialogInterface?, which:Int)
                 {
                     mDatabase = FirebaseDatabase.getInstance()
                     mDatabaseReference = mDatabase!!.reference!!.child("Events")

@@ -1,6 +1,8 @@
 package com.example.mejdo.myisam.fragments.list
 
 
+import android.app.Dialog
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
@@ -8,6 +10,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
@@ -44,6 +47,9 @@ class mesclub : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         val mUser = mAuth!!.currentUser
         var i=0
+
+
+
         ref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError?) {
 
@@ -73,11 +79,13 @@ class mesclub : Fragment() {
                     val ProfilFragment = ProfilFragment.newInstance()
                     ProfilFragment.setArguments(bundle)*/
 
-                    Toast.makeText(context,i.toString(), Toast.LENGTH_LONG).show()
+                   // Toast.makeText(context,i.toString(), Toast.LENGTH_LONG).show()
 
                     val adapter= AdapterListeClub(view.context, R.layout.my_liste_item,clublist)
                     listView.adapter=adapter
                     listView.setOnItemClickListener{
+
+
                         parent: AdapterView<*>?, view: View?, position:Int, id:Long ->
                         val C=clublist[position]
                         detail(C)
@@ -96,12 +104,8 @@ class mesclub : Fragment() {
         bundle.putString("key", club.name)
         bundle.putString("id", club.clubId)
         bundle.putString("des", club.description)
-
-
-
         val MyListeEvent = MyListeEvent.newInstance()
-        MyListeEvent.setArguments(bundle);
-
+        MyListeEvent.setArguments(bundle)
         val fragmentManager = activity!!.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fargment_container, MyListeEvent)

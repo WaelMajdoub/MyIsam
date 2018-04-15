@@ -2,11 +2,14 @@ package com.example.mejdo.myisam.fragments.list
 
 
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.*
 
 import com.example.mejdo.myisam.R
@@ -20,14 +23,25 @@ import com.google.firebase.database.FirebaseDatabase
  */
 class DetailDemandeEvent : Fragment() {
 
-    lateinit var accep: Button
-    lateinit var ref: Button
-    lateinit var nameEvent: TextView
-    lateinit var dateEvent: TextView
-    lateinit var formEvent: TextView
-    lateinit var prixEvent: TextView
-    lateinit var descEvent: TextView
-    private lateinit var RelativeLayout: RelativeLayout
+
+
+    lateinit var nameEvent:TextView
+    lateinit var dateEvent:TextView
+    lateinit var formEvent:TextView
+    lateinit var prixEvent:TextView
+    lateinit var descEvent:TextView
+    lateinit var heur_event:TextView
+    lateinit var fab_main: FloatingActionButton
+    lateinit var fab_1: FloatingActionButton
+    lateinit var fab_2: FloatingActionButton
+    lateinit var fab_open: Animation
+    lateinit var fab_close: Animation
+    lateinit var rotate_cw: Animation
+    lateinit var rotate_acw: Animation
+    //lateinit var inter:TextView
+    var isopen:Boolean=false
+    private lateinit var relativelayout: RelativeLayout
+
 
     private var mDatabaseReference: DatabaseReference? = null
     private var mDatabase: FirebaseDatabase? = null
@@ -35,6 +49,44 @@ class DetailDemandeEvent : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_detail_demande_event, container, false)
+        fab_main=view.findViewById(R.id.fab1)
+        fab_1=view.findViewById(R.id.fab2)
+        fab_2=view.findViewById(R.id.fab3)
+        fab_open= AnimationUtils.loadAnimation(context,R.anim.open_fab)
+        fab_close= AnimationUtils.loadAnimation(context,R.anim.close_fab)
+        rotate_cw= AnimationUtils.loadAnimation(context,R.anim.rotate_clockwise)
+        rotate_acw= AnimationUtils.loadAnimation(context,R.anim.rotate_anticlockwise)
+        fab_main.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(p0: View?) {
+                if (isopen) {
+                    fab_main.setImageResource(R.drawable.ic_swap_calls_black_24dp)
+                    fab_1.startAnimation(fab_close)
+                    fab_2.startAnimation(fab_close)
+                    fab_main.startAnimation(rotate_acw)
+                    fab_1.visibility=View.GONE
+                    //inter.visibility=View.GONE
+                    fab_2.visibility=View.GONE
+                    isopen=false
+
+
+
+                } else {
+
+                    fab_1.startAnimation(fab_open)
+                    fab_2.startAnimation(fab_open)
+                    fab_main.startAnimation(rotate_cw)
+                    fab_1.visibility=View.VISIBLE
+                    fab_2.visibility=View.VISIBLE
+                    fab_1.isClickable=true
+                    fab_2.isClickable=true
+                    isopen=true
+                    fab_main.setImageResource(R.drawable.ic_add_black_24dp)
+
+                    // inter.visibility=View.VISIBLE
+
+                }
+            }
+        })
         nameEvent=view.findViewById(R.id.nameEvent)
         dateEvent=view.findViewById(R.id.dateEvent)
         formEvent=view.findViewById(R.id.formEvent)
@@ -46,35 +98,42 @@ class DetailDemandeEvent : Fragment() {
         val date = this.arguments!!.getString("date")
         val prix = this.arguments!!.getString("prix")
         val id_event = this.arguments!!.getString("id_event")
-      //  Toast.makeText(this.context,""+idevent,Toast.LENGTH_LONG).show()
+        //  Toast.makeText(this.context,""+idevent,Toast.LENGTH_LONG).show()
         nameEvent.text=name_event
         dateEvent.text=date
         formEvent.text=formateur
         descEvent.text=description
         prixEvent.text=prix
-        accep=view.findViewById(R.id.accep)
-        ref=view.findViewById(R.id.refuser)
+        relativelayout=view.findViewById(R.id.cord)
 
-        RelativeLayout=view.findViewById(R.id.cordd)
+        fab_1.setOnClickListener {
 
-      accep.setOnClickListener{
-            // etat=="1"
-        mDatabase = FirebaseDatabase.getInstance()
+            mDatabase = FirebaseDatabase.getInstance()
             mDatabaseReference = mDatabase!!.reference!!.child("Events")
             val mUserReference = mDatabaseReference!!.child(id_event).child("etat").setValue("1")
-          var snackbar: Snackbar = Snackbar.make(RelativeLayout,"evenement accepté", Snackbar.LENGTH_LONG)
-          snackbar.show()
-          accep.isEnabled=false
+            var snackbar: Snackbar = Snackbar.make(relativelayout,"evenement accepté", Snackbar.LENGTH_LONG)
+            snackbar.show()
+            val ListeAllEvent = ListeAllEvent.newInstance()
+            val fragmentManager = activity!!.supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fargment_container, ListeAllEvent)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+
+
         }
-        ref.setOnClickListener{
-            // etat=="1"
+        fab_2.setOnClickListener {
             mDatabase = FirebaseDatabase.getInstance()
             mDatabaseReference = mDatabase!!.reference!!.child("Events")
             val mUserReference = mDatabaseReference!!.child(id_event).removeValue()
-            var snackbar: Snackbar = Snackbar.make(RelativeLayout,"evenement refusé", Snackbar.LENGTH_LONG)
+            var snackbar: Snackbar = Snackbar.make(relativelayout,"evenement refusé", Snackbar.LENGTH_LONG)
             snackbar.show()
-            accep.isEnabled=false
         }
+
+
+
+
+
         return view
     }
     companion object {

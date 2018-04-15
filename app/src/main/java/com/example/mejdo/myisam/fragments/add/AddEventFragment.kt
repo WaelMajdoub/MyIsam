@@ -32,7 +32,6 @@ class AddEventFragment  : Fragment()   {
     lateinit var save: Button
     lateinit var timePicker: Button
     lateinit var editText1 : EditText
-    lateinit var editText3 : EditText
     lateinit var editText4 : EditText
     lateinit var editText5 : EditText
     lateinit var form : EditText
@@ -44,7 +43,6 @@ class AddEventFragment  : Fragment()   {
         val view = inflater.inflate(R.layout.fragment_add_event, container, false)
         var names= arrayOf("licence im","licence cm","ingéneur","master","pour tous")
         editText1 = view.findViewById<EditText>(R.id.name)
-        editText3 = view.findViewById<EditText>(R.id.description)
         editText4 = view.findViewById<EditText>(R.id.date)
         editText5 = view.findViewById<EditText>(R.id.prix)
         form=view.findViewById<EditText>(R.id.formateur_event)
@@ -66,7 +64,6 @@ class AddEventFragment  : Fragment()   {
              val size = spin.getSelectedItem().toString()
            //  Toast.makeText(context,"Saved succesfuly."+size,Toast.LENGTH_SHORT).show()
             val name= editText1.text.toString().trim()
-            val description= editText3.text.toString().trim()
             val date= editText4.text.toString().trim()
             val prix= editText5.text.toString().trim()
                 val f =form.text.toString().trim()
