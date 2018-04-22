@@ -76,14 +76,13 @@ class ListeAllEvent : Fragment() {
         bundle.putString("date", event.date)
         bundle.putString("prix", event.prix)
         bundle.putString("idclub", event.idclub)
-        val DetailDemandeEvent = DetailDemandeEvent.newInstance()
-        DetailDemandeEvent.setArguments(bundle);
+        val Detail_admin_event = Detail_admin_event.newInstance()
+        Detail_admin_event.setArguments(bundle);
         val fragmentManager = activity!!.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fargment_container, DetailDemandeEvent)
+        fragmentTransaction.replace(R.id.fargment_container, Detail_admin_event)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
-
     }
 
 

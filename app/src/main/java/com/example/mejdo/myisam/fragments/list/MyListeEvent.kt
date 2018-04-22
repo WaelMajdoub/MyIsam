@@ -159,7 +159,6 @@ import com.google.firebase.database.*
     }
 
     private fun detail(event:Events){
-
         val bundle = Bundle()
         bundle.putString("name_event", event.name_event)
         bundle.putString("description", event.description)

@@ -125,6 +125,7 @@ class DetailEventFragment : Fragment() {
         formEvent.text=formateur
         descEvent.text=description
         prixEvent.text=prix
+
         part=view.findViewById(R.id.save)
         relativelayout=view.findViewById(R.id.cord)
         part.setOnClickListener{

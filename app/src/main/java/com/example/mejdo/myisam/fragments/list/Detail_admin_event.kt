@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase
 /**
  * A simple [Fragment] subclass.
  */
-class DetailDemandeEvent : Fragment() {
+class Detail_admin_event : Fragment() {
 
 
 
@@ -32,8 +32,7 @@ class DetailDemandeEvent : Fragment() {
     lateinit var descEvent:TextView
     lateinit var heur_event:TextView
     lateinit var fab_main: FloatingActionButton
-    lateinit var fab_1: FloatingActionButton
-    lateinit var fab_2: FloatingActionButton
+
     lateinit var fab_open: Animation
     lateinit var fab_close: Animation
     lateinit var rotate_cw: Animation
@@ -50,8 +49,6 @@ class DetailDemandeEvent : Fragment() {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_detail_demande_event, container, false)
         fab_main=view.findViewById(R.id.fab1)
-        fab_1=view.findViewById(R.id.fab2)
-        fab_2=view.findViewById(R.id.fab3)
         fab_open= AnimationUtils.loadAnimation(context,R.anim.open_fab)
         fab_close= AnimationUtils.loadAnimation(context,R.anim.close_fab)
         rotate_cw= AnimationUtils.loadAnimation(context,R.anim.rotate_clockwise)
@@ -61,25 +58,18 @@ class DetailDemandeEvent : Fragment() {
             override fun onClick(p0: View?) {
                 if (isopen) {
                     fab_main.setImageResource(R.drawable.ic_swap_calls_black_24dp)
-                    fab_1.startAnimation(fab_close)
-                    fab_2.startAnimation(fab_close)
+
                     fab_main.startAnimation(rotate_acw)
-                    fab_1.visibility=View.GONE
-                    //inter.visibility=View.GONE
-                    fab_2.visibility=View.GONE
+
                     isopen=false
 
 
 
                 } else {
 
-                    fab_1.startAnimation(fab_open)
-                    fab_2.startAnimation(fab_open)
+
                     fab_main.startAnimation(rotate_cw)
-                    fab_1.visibility=View.VISIBLE
-                    fab_2.visibility=View.VISIBLE
-                    fab_1.isClickable=true
-                    fab_2.isClickable=true
+
                     isopen=true
                     fab_main.setImageResource(R.drawable.ic_add_black_24dp)
 
@@ -88,51 +78,31 @@ class DetailDemandeEvent : Fragment() {
                 }
             }
         })
+        heur_event=view.findViewById(R.id.heur_event)
         nameEvent=view.findViewById(R.id.nameEvent)
         dateEvent=view.findViewById(R.id.dateEvent)
         formEvent=view.findViewById(R.id.formEvent)
         prixEvent=view.findViewById(R.id.prixEvent)
         descEvent=view.findViewById(R.id.descEvent)
-        heur_event=view.findViewById(R.id.heur_event)
         val name_event = this.arguments!!.getString("name_event")
         val description = this.arguments!!.getString("description")
         val formateur = this.arguments!!.getString("formateur")
         val date = this.arguments!!.getString("date")
-        val heur = this.arguments!!.getString("heure")
         val prix = this.arguments!!.getString("prix")
         val id_event = this.arguments!!.getString("id_event")
+        val heure = this.arguments!!.getString("heure")
+
+
         //  Toast.makeText(this.context,""+idevent,Toast.LENGTH_LONG).show()
         nameEvent.text=name_event
         dateEvent.text=date
         formEvent.text=formateur
         descEvent.text=description
         prixEvent.text=prix
-        heur_event.text=heur
+        heur_event.text=heure
         relativelayout=view.findViewById(R.id.cord)
 
-        fab_1.setOnClickListener {
 
-            mDatabase = FirebaseDatabase.getInstance()
-            mDatabaseReference = mDatabase!!.reference!!.child("Events")
-            val mUserReference = mDatabaseReference!!.child(id_event).child("etat").setValue("1")
-            var snackbar: Snackbar = Snackbar.make(relativelayout,"evenement accepté", Snackbar.LENGTH_LONG)
-            snackbar.show()
-            val ListeAllEvent = ListeAllEvent.newInstance()
-            val fragmentManager = activity!!.supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fargment_container, ListeAllEvent)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
-
-
-        }
-        fab_2.setOnClickListener {
-            mDatabase = FirebaseDatabase.getInstance()
-            mDatabaseReference = mDatabase!!.reference!!.child("Events")
-            val mUserReference = mDatabaseReference!!.child(id_event).removeValue()
-            var snackbar: Snackbar = Snackbar.make(relativelayout,"evenement refusé", Snackbar.LENGTH_LONG)
-            snackbar.show()
-        }
 
 
 
@@ -141,7 +111,7 @@ class DetailDemandeEvent : Fragment() {
         return view
     }
     companion object {
-        fun newInstance() : DetailDemandeEvent = DetailDemandeEvent()
+        fun newInstance() : Detail_admin_event = Detail_admin_event()
     }
 
 }// Required empty public constructor

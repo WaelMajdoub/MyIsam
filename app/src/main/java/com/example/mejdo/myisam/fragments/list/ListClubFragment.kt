@@ -73,7 +73,7 @@ class ListClubFragment : Fragment() {
                             }
                             if (club.etat=="1"){
                                 //role devient admin_club
-                                val intent= Intent()
+                         /*       val intent= Intent()
                                 val pendingIntent= PendingIntent.getActivity(context,0,intent,0)
                                 val notification= Notification.Builder(context).setSmallIcon(R.drawable.navigation_empty_icon)
                                         .setContentTitle("Confirmation !!")
@@ -82,7 +82,7 @@ class ListClubFragment : Fragment() {
 
                                 notification.setContentIntent(pendingIntent)
                                 val noticationManager= context!!.getSystemService(Context.NOTIFICATION_SERVICE)as NotificationManager
-                                noticationManager.notify(0,notification.build())
+                                noticationManager.notify(0,notification.build()) */
                                 listDem.add(club!!)
 
                                 clublist.add(club!!)
