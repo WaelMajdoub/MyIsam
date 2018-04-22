@@ -34,9 +34,9 @@ import java.util.*
  * A simple [Fragment] subclass.
  */
 class AddEventFragment  : Fragment()   {
-    private var filePath: Uri? =null
+  /*  private var filePath: Uri? =null
     internal var storage: FirebaseStorage?=null
-    internal var storageReference:StorageReference?=null
+    internal var storageReference:StorageReference?=null */
     lateinit var save: Button
     lateinit var editText1 : EditText
     lateinit var editText4 : EditText
@@ -48,10 +48,13 @@ class AddEventFragment  : Fragment()   {
     @RequiresApi(Build.VERSION_CODES.N) override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?  {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_event, container, false)
-        storage= FirebaseStorage.getInstance()
-        storageReference=storage!!.reference
+      /*  storage= FirebaseStorage.getInstance()
+        storageReference=storage!!.reference */
 
-        var names= arrayOf("licence im","licence cm","ingéneur","master","pour tous")
+
+
+
+        var names= arrayOf("licence im","licence cm"," ingéneur","master","pour tous")
         editText1 = view.findViewById<EditText>(R.id.name)
         editText4 = view.findViewById<EditText>(R.id.date)
         editText5 = view.findViewById<EditText>(R.id.prix)

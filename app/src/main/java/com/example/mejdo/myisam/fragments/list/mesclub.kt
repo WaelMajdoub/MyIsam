@@ -14,25 +14,22 @@ import android.view.Window
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
-
 import com.example.mejdo.myisam.R
 import com.example.mejdo.myisam.fragments.profil.ProfilFragment
 import com.example.mejdo.myisam.model.Clubs
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
-
 /**
  * A simple [Fragment] subclass.
  */
 class mesclub : Fragment() {
     lateinit var listView: ListView
-    lateinit var ref: DatabaseReference
     lateinit var clublist:MutableList<Clubs>
+    lateinit var ref: DatabaseReference
     private var mDatabaseReference: DatabaseReference? = null
     private var mDatabase: FirebaseDatabase? = null
     private var mAuth: FirebaseAuth? = null
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.mesclub, container, false)

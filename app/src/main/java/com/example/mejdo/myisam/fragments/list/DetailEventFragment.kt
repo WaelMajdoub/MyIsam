@@ -18,6 +18,9 @@ import android.widget.TextView
 import android.widget.Toast
 
 import com.example.mejdo.myisam.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_add_event.*
 import kotlinx.android.synthetic.main.liste_event.*
 
@@ -44,6 +47,11 @@ class DetailEventFragment : Fragment() {
     lateinit var rotate_acw:Animation
     //lateinit var inter:TextView
     var isopen:Boolean=false
+    lateinit var ref: DatabaseReference
+    private var mDatabaseReference: DatabaseReference? = null
+    private var mDatabase: FirebaseDatabase? = null
+    private var mAuth: FirebaseAuth? = null
+
 
 
 
@@ -112,7 +120,6 @@ class DetailEventFragment : Fragment() {
         formEvent=view.findViewById(R.id.formEvent)
         prixEvent=view.findViewById(R.id.prixEvent)
         descEvent=view.findViewById(R.id.descEvent)
-
         val name_event = this.arguments!!.getString("name_event")
         val description = this.arguments!!.getString("description")
         val formateur = this.arguments!!.getString("formateur")
@@ -125,10 +132,17 @@ class DetailEventFragment : Fragment() {
         formEvent.text=formateur
         descEvent.text=description
         prixEvent.text=prix
-
         part=view.findViewById(R.id.save)
         relativelayout=view.findViewById(R.id.cord)
+
+        ref= FirebaseDatabase.getInstance().getReference("Clubs")
+        mDatabase = FirebaseDatabase.getInstance()
+        mDatabaseReference = mDatabase!!.reference!!.child("Users")
+        mAuth = FirebaseAuth.getInstance()
+        val mUser = mAuth!!.currentUser
+
         part.setOnClickListener{
+
             var snackbar: Snackbar = Snackbar.make(relativelayout,"votre demande a été envoyer veuillez attendez la confirmation de responsable de club", Snackbar.LENGTH_LONG)
             snackbar.show()
             part.isEnabled=false
