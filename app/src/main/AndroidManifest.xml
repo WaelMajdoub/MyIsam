@@ -15,18 +15,15 @@
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activity.Register" />
+
         <activity
             android:name=".activity.Home"
             android:label="@string/title_activity_home" />
-        <activity android:name=".add_club" />
-        <activity android:name=".about_ac" />
         <activity android:name=".activity.Home_admin" />
-        <activity android:name=".fragments.list.Mes_Club"></activity>
     </application>
 
 </manifest>

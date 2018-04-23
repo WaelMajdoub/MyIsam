@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private var mDatabase: FirebaseDatabase? = null
     private var mAuth: FirebaseAuth? = null
     //lateinit var mToolbar: Toolbar
-    private lateinit var relativelayout: RelativeLayout
+    private lateinit var relativelayout: ScrollView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
