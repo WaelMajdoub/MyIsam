@@ -57,26 +57,6 @@
                 android:layout_marginTop="16dp"
                 >
             </Spinner>
-            
-            
-
-        <!--    <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/type"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:singleLine="true"
-                    android:drawableTint="#FF4081"
-                    android:hint="Type club"
-                    />
-            </android.support.design.widget.TextInputLayout>
--->
-
-
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -94,13 +74,6 @@
                         android:drawableRight="@drawable/ic_date_range_black_24dp"
                         />
                 </android.support.design.widget.TextInputLayout>
-
-
-
-
-
-
-
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -152,6 +125,12 @@
                     />
             </android.support.design.widget.TextInputLayout>
 
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/add" />
+
             <Button
                 android:id="@+id/save"
                 android:layout_width="fill_parent"
@@ -163,11 +142,6 @@
                 android:textColor="#fff"
                 android:textSize="18sp"
                 />
-
-
-
-
-
 
         </LinearLayout>
         </LinearLayout>

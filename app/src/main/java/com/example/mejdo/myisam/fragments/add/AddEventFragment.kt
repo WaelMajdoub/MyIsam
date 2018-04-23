@@ -1,7 +1,9 @@
 package com.example.mejdo.myisam.fragments.add
 import android.R.attr.*
+import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -25,6 +27,7 @@ import android.widget.TimePicker
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageMetadata
 import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 import java.text.SimpleDateFormat
 
 import java.util.*
@@ -44,6 +47,9 @@ class AddEventFragment  : Fragment()   {
     lateinit var form : EditText
     lateinit var heur : EditText
     lateinit var mAuth: FirebaseAuth
+    lateinit var uri : Uri
+    lateinit var mStorage : StorageReference
+    val file : Int=0
 
     @RequiresApi(Build.VERSION_CODES.N) override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?  {
         // Inflate the layout for this fragment
@@ -58,6 +64,8 @@ class AddEventFragment  : Fragment()   {
         editText1 = view.findViewById<EditText>(R.id.name)
         editText4 = view.findViewById<EditText>(R.id.date)
         editText5 = view.findViewById<EditText>(R.id.prix)
+        val image =view.findViewById<View>(R.id.image)
+        mStorage = FirebaseStorage.getInstance().getReference("Uploads")
         form=view.findViewById<EditText>(R.id.formateur_event)
         heur=view.findViewById<EditText>(R.id.heur)
         var spin: Spinner =view.findViewById<Spinner>(R.id.spin)
@@ -96,36 +104,12 @@ class AddEventFragment  : Fragment()   {
             }
             }
 
-
-        /*      heur.setOnClickListener(View.OnClickListener {
-                  val newFragment = TimePickerFragment()
-                  newFragment.show(activity!!.fragmentManager, "msg")
-
-              })*/
-
-
-
-       /*    timePicker = view.findViewById<Button>(R.id.timePicker)
-            timePicker.setOnClickListener(View.OnClickListener {
-                 val newFragment = TimePickerFragment()
-                 newFragment.show(activity!!.fragmentManager, "msg")
-
-
-            })*/
-
-
-
-      /*  heur.setOnClickListener(View.OnClickListener {
-            val c=Calendar.getInstance()
-            val day =c.get(Calendar.DAY_OF_MONTH)
-            val month =c.get(Calendar.MONTH)
-            val year =c.get(Calendar.YEAR)
-            val dpd =DatePickerDialog(context,android.R.style.Theme_Holo_Dialog,DatePickerDialog.OnDateSetListener { datePicker, year, monthOfYear, dayOfMonth ->
-                heur.setText("$year $monthOfYear $dayOfMonth")
-            },year,month,day)
-            dpd.show()
-        })*/
-
+        image.setOnClickListener(View.OnClickListener {
+            view : View? -> val intent = Intent()
+            intent.setType("image/*")
+            intent.setAction(Intent.ACTION_GET_CONTENT)
+            startActivityForResult(Intent.createChooser(intent,"select image"),file)
+        })
 
         val cal=Calendar.getInstance()
         heur.setOnClickListener(View.OnClickListener {
@@ -170,10 +154,27 @@ companion object {
  fun newInstance(): AddEventFragment = AddEventFragment()
 }
 
-fun saveData(){
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == file) {
+                uri = data!!.data
+                upload ()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
 
+    private fun upload() {
+        var mReference = mStorage.child(uri.lastPathSegment)
+        try {
+            mReference.putFile(uri).addOnSuccessListener {
+                taskSnapshot: UploadTask.TaskSnapshot? -> var url = taskSnapshot!!.downloadUrl
+            }
+        }catch (e: Exception) {
+            Toast.makeText(this.context, e.toString(), Toast.LENGTH_LONG).show()
+        }
 
-}
+    }
 
 
 }// Required empty public constructor
