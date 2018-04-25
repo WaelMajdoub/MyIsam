@@ -75,6 +75,8 @@ class ListeAllEvent : Fragment() {
         bundle.putString("formateur", event.formateur)
         bundle.putString("date", event.date)
         bundle.putString("prix", event.prix)
+        bundle.putString("heur", event.heur)
+
         bundle.putString("idclub", event.idclub)
         val Detail_admin_event = Detail_admin_event.newInstance()
         Detail_admin_event.setArguments(bundle);

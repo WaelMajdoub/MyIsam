@@ -24,6 +24,8 @@ import android.view.ViewParent
 import android.widget.*
 import com.example.mejdo.myisam.fragments.list.adapter_liste_event
 import android.widget.TimePicker
+import com.example.mejdo.myisam.fragments.list.ListClubFragment
+import com.example.mejdo.myisam.fragments.list.ListeEventFragment
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageMetadata
 import com.google.firebase.storage.StorageReference
@@ -82,25 +84,26 @@ class AddEventFragment  : Fragment()   {
         }
             save = view.findViewById<Button>(R.id.save)
             save.setOnClickListener{
-             val size = spin.getSelectedItem().toString()
+            val size = spin.getSelectedItem().toString()
            //  Toast.makeText(context,"Saved succesfuly."+size,Toast.LENGTH_SHORT).show()
             val name= editText1.text.toString().trim()
             val date= editText4.text.toString().trim()
             val prix= editText5.text.toString().trim()
-                val f =form.text.toString().trim()
-                val h =heur.text.toString().trim()
+            val f =form.text.toString().trim()
+            val h =heur.text.toString().trim()
 
 
 
-                mAuth=FirebaseAuth.getInstance()
-             val uid=mAuth.currentUser?.uid
-            val id = this.arguments!!.getString("id")
-            val myDataBase= FirebaseDatabase.getInstance().getReference("Events")
-            val eventId = myDataBase.push().key
-                val etat="0"
-                val event = Events(eventId, name, size, f , date,h ,prix,etat,id)
-                myDataBase.child(eventId).setValue(event).addOnCompleteListener{
-                Toast.makeText(view.context,"Veuillez attendez la confirmation.",Toast.LENGTH_SHORT).show()
+                    mAuth=FirebaseAuth.getInstance()
+                    val uid=mAuth.currentUser?.uid
+                    val id = this.arguments!!.getString("id")
+                    val myDataBase= FirebaseDatabase.getInstance().getReference("Events")
+                    val eventId = myDataBase.push().key
+                    val etat="0"
+                    val event = Events(eventId, name, size, f , date,h ,prix,etat,id)
+                    myDataBase.child(eventId).setValue(event).addOnCompleteListener{
+                    Toast.makeText(view.context,"Veuillez attendez la confirmation.",Toast.LENGTH_SHORT).show()
+
             }
             }
 

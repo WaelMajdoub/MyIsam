@@ -3,22 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/listClub"
-        android:icon="@drawable/list"
+        android:icon="@drawable/ic_as"
         android:title="club"
        />
 
     <item
         android:id="@+id/addClub"
-        android:icon="@drawable/add"
+        android:icon="@drawable/addu"
         android:title="add club" />
 
     <item
         android:id="@+id/about"
-        android:icon="@drawable/lock"
+        android:icon="@drawable/ab"
         android:title="@string/menu_about" />
     <item
         android:id="@+id/profil"
-        android:icon="@drawable/ic_mood_black_24dp"
+        android:icon="@drawable/pr"
         android:title="profil" />
 
 </menu>

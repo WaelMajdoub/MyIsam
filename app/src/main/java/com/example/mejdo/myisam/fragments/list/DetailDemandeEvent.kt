@@ -117,10 +117,10 @@ class DetailDemandeEvent : Fragment() {
             val mUserReference = mDatabaseReference!!.child(id_event).child("etat").setValue("1")
             var snackbar: Snackbar = Snackbar.make(relativelayout,"evenement accepté", Snackbar.LENGTH_LONG)
             snackbar.show()
-            val ListeAllEvent = ListeAllEvent.newInstance()
+            val ListeDemandeEvent = ListeDemandeEvent.newInstance()
             val fragmentManager = activity!!.supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fargment_container, ListeAllEvent)
+            fragmentTransaction.replace(R.id.fargment_container, ListeDemandeEvent)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
 
@@ -132,6 +132,12 @@ class DetailDemandeEvent : Fragment() {
             val mUserReference = mDatabaseReference!!.child(id_event).removeValue()
             var snackbar: Snackbar = Snackbar.make(relativelayout,"evenement refusé", Snackbar.LENGTH_LONG)
             snackbar.show()
+            val ListeDemandeEvent = ListeDemandeEvent.newInstance()
+            val fragmentManager = activity!!.supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fargment_container, ListeDemandeEvent)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
         }
 
 

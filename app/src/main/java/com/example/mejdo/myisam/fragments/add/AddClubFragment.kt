@@ -16,6 +16,8 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
 import android.widget.*
+import com.example.mejdo.myisam.fragments.list.ListClubFragment
+import com.example.mejdo.myisam.fragments.list.ListeDemandeEvent
 import com.example.mejdo.myisam.utils.SessionManager
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
@@ -74,7 +76,13 @@ class AddClubFragment : Fragment() {
                 val etat="0"
                 val club = Clubs(clubId, name, size,description,etat,uid!!)
                 myDataBase.child(clubId).setValue(club).addOnCompleteListener {
-                    Toast.makeText(view.context, "Veuillez attendez la confiramation", Toast.LENGTH_SHORT).show()
+                Toast.makeText(view.context, "Veuillez attendez la confiramation", Toast.LENGTH_SHORT).show()
+                    val ListClubFragment = ListClubFragment.newInstance()
+                    val fragmentManager = activity!!.supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.replace(R.id.fargment_container, ListClubFragment)
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
                 }
 
 

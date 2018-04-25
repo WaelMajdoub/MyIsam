@@ -20,12 +20,12 @@ class adapter_liste_event(var mctx: Context, var resource:Int, var items:List<Ev
         val view :View=layoutInflater.inflate(resource,null)
         var textview1: TextView =view.findViewById(R.id.name_event)
         var textview2: TextView =view.findViewById(R.id.date_event)
-        var textview3: TextView =view.findViewById(R.id.formateur)
+//        var textview3: TextView =view.findViewById(R.id.formateur)
         var event : Events =items[position]
         //  imageview.setImageDrawable(mctx.resources.getDrawable(club.))
         textview1.text=event.name_event
         textview2.text=event.date
-        textview3.text=event.description
+      //  textview3.text=event.heur
         /*  imagev.setOnClickListener{
                   Toast.makeText(context,"lalal",Toast.LENGTH_LONG).show()
               }*/

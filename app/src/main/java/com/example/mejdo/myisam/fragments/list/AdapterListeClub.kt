@@ -25,15 +25,15 @@ class AdapterListeClub(var mctx: Context, var resource:Int, var items:List<Clubs
     //   val imagev:ImageView=view.findViewById(R.id.del)
         var textview1: TextView =view.findViewById(R.id.name_club)
         var textview2: TextView =view.findViewById(R.id.type_club)
-        var textview3: TextView =view.findViewById(R.id.desc_club)
         var club : Clubs =items[position]
       //  imageview.setImageDrawable(mctx.resources.getDrawable(club.))
         textview1.text=club.name
         textview2.text=club.type
-        textview3.text=club.description
+
       /*  imagev.setOnClickListener{
             Toast.makeText(context,"lalal",Toast.LENGTH_LONG).show()
         }*/
+
         return view
     }
 }

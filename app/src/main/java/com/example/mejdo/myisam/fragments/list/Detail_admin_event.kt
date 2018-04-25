@@ -90,7 +90,7 @@ class Detail_admin_event : Fragment() {
         val date = this.arguments!!.getString("date")
         val prix = this.arguments!!.getString("prix")
         val id_event = this.arguments!!.getString("id_event")
-        val heure = this.arguments!!.getString("heure")
+        val heure = this.arguments!!.getString("heur")
 
 
         //  Toast.makeText(this.context,""+idevent,Toast.LENGTH_LONG).show()

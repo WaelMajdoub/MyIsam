@@ -11,15 +11,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_margin="4dp"
-
         android:orientation="horizontal"
         android:padding="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:orientation="vertical">
 
             <TextView
@@ -45,32 +44,49 @@
                 android:src="@drawable/jeune" />
 
             <View
+                android:id="@+id/viewtxt"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/bleu" />
+            <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_below="@id/name_club" />
 
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
+             <!--   <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="125dp"
+                    android:layout_marginStart="125dp"
+                    android:text="Type"
+                    android:textColor="@color/bleu"
+                    android:textStyle="bold" />
+-->
                 <TextView
                     android:id="@+id/type_club"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="Ordre minimum:"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Type"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_toRightOf="@+id/type_club"
-                    android:id="@+id/desc_club"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="TextView" />
+
 
             </RelativeLayout>
 

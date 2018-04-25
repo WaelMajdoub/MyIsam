@@ -37,12 +37,12 @@ class adapter_liste_all_event(var mctx: Context, var resource:Int, var items:Lis
         val imagev: ImageView =view.findViewById(R.id.del)
         var textview1: TextView =view.findViewById(R.id.name_event)
         var textview2: TextView =view.findViewById(R.id.date_event)
-        var textview3: TextView =view.findViewById(R.id.formateur)
+//        var textview3: TextView =view.findViewById(R.id.formateur)
         var event : Events =items[position]
         //  imageview.setImageDrawable(mctx.resources.getDrawable(club.))
         textview1.text=event.name_event
         textview2.text=event.date
-        textview3.text=event.description
+       // textview3.text=event.description
         imagev.setOnClickListener{
 
             var builder : AlertDialog.Builder= AlertDialog.Builder(context)

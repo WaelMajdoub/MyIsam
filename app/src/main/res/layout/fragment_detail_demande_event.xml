@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="20dp">
 
 
 
@@ -44,7 +44,6 @@
                     android:layout_height="wrap_content"
                     android:text="  Niveau"
                     android:textStyle="bold"
-                    android:drawableLeft="@drawable/ic_club"
                     android:textColor="@color/bleu"
                     android:layout_marginTop="16dp"
                     android:textSize="17sp"
@@ -65,7 +64,12 @@
 
                     />
             </LinearLayout>
-
+            <View
+                android:id="@+id/viewtxt"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/grey" />
 
 
 
@@ -81,7 +85,6 @@
                     android:layout_height="wrap_content"
                     android:text="  Date"
                     android:textStyle="bold"
-                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
                     android:textColor="@color/bleu"
                     android:layout_marginTop="16dp"
                     android:textSize="17sp"
@@ -102,6 +105,11 @@
 
                     />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/grey" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -114,7 +122,6 @@
                     android:text="  heur"
                     android:textStyle="bold"
                     android:textColor="@color/bleu"
-                    android:drawableLeft="@drawable/ic_access_time_black_24dp"
                     android:layout_marginTop="16dp"
                     android:textSize="17sp"
 
@@ -134,6 +141,12 @@
 
                     />
             </LinearLayout>
+            <View
+                android:id="@+id/viewtxt"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/grey" />
 
 
             <LinearLayout
@@ -149,7 +162,6 @@
                     android:textColor="@color/bleu"
                     android:layout_marginTop="16dp"
                     android:textSize="17sp"
-                    android:drawableLeft="@drawable/ic_face_black_24dp"
 
 
                     />
@@ -167,6 +179,12 @@
 
                     />
             </LinearLayout>
+            <View
+                android:id="@+id/viewtxt"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/grey" />
 
 
             <LinearLayout
@@ -175,7 +193,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableLeft="@drawable/ic_attach_money_black_24dp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="  Prix"
@@ -203,7 +220,12 @@
 
 
 
-
+            <View
+                android:id="@+id/viewtxt"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/grey" />
 
 
 
@@ -237,10 +259,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="30dp"
             android:layout_marginLeft="60dp"
             android:visibility="gone"
-            android:src="@drawable/ic_star_border_black_24dp"
+            android:src="@drawable/dell"
             />
     </LinearLayout>
     <LinearLayout
@@ -252,7 +274,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="30dp"
             android:layout_marginLeft="240dp"
             android:src="@drawable/ic_check_black_24dp"
             android:visibility="gone" />
@@ -277,7 +299,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="30dp"
             android:layout_marginLeft="150dp"
             android:src="@drawable/ic_swap_calls_black_24dp"
             android:gravity="center_horizontal"

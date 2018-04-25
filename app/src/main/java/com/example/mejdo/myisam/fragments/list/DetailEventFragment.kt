@@ -50,11 +50,7 @@ class DetailEventFragment : Fragment() {
     lateinit var ref: DatabaseReference
     private var mDatabaseReference: DatabaseReference? = null
     private var mDatabase: FirebaseDatabase? = null
-    private var mAuth: FirebaseAuth? = null
-
-
-
-
+    private var mAuth: FirebaseAuth?=null
     private lateinit var relativelayout: RelativeLayout
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -100,20 +96,12 @@ class DetailEventFragment : Fragment() {
         fab_1.setOnClickListener {
             var snackbar: Snackbar = Snackbar.make(relativelayout," ***  participer  ***", Snackbar.LENGTH_LONG)
             snackbar.show()
-            fab_main.setImageResource(R.drawable.ic_swap_calls_black_24dp)
-            fab_1.startAnimation(fab_close)
-            fab_2.startAnimation(fab_close)
-            fab_main.startAnimation(rotate_acw)
-            fab_1.visibility=View.GONE
-            //inter.visibility=View.GONE
-            fab_2.visibility=View.GONE
+
         }
         fab_2.setOnClickListener {
             var snackbar: Snackbar = Snackbar.make(relativelayout,"***  Intéressé  ***", Snackbar.LENGTH_LONG)
             snackbar.show()
         }
-
-
         heur_event=view.findViewById(R.id.heur_event)
         nameEvent=view.findViewById(R.id.nameEvent)
         dateEvent=view.findViewById(R.id.dateEvent)
